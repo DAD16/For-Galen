@@ -138,7 +138,7 @@ export function CreateTaskDialog({
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent position="popper" className="max-h-60">
                   <SelectItem value="low">Low</SelectItem>
                   <SelectItem value="medium">Medium</SelectItem>
                   <SelectItem value="high">High</SelectItem>
@@ -156,7 +156,7 @@ export function CreateTaskDialog({
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent position="popper" className="max-h-60">
                   {columns
                     .sort((a, b) => a.sortOrder - b.sortOrder)
                     .map((col) => (

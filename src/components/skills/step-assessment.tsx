@@ -92,7 +92,7 @@ export function StepAssessment({
               <SelectTrigger>
                 <SelectValue placeholder="Select an answer..." />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent position="popper" className="max-h-60">
                 {q.options.map((opt) => (
                   <SelectItem key={opt.value} value={opt.value}>
                     {opt.label}

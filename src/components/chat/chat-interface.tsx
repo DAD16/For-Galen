@@ -120,7 +120,7 @@ export function ChatInterface() {
             <SelectTrigger className="w-[200px]">
               <SelectValue placeholder="Select context" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent position="popper" className="max-h-60">
               {contexts.map((ctx) => (
                 <SelectItem key={ctx.value} value={ctx.value}>
                   {ctx.label}
