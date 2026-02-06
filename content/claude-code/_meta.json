@@ -1,0 +1,56 @@
+{
+  "title": "Claude Code for IT Management",
+  "description": "Learn to use Claude Code to automate IT tasks, manage spreadsheets, integrate with Salesforce, streamline Fishbowl operations, and generate documents.",
+  "icon": "terminal",
+  "authorId": "sarah-chen",
+  "modules": [
+    {
+      "slug": "01-getting-started",
+      "title": "Getting Started with Claude Code",
+      "description": "Install Claude Code, understand the basics, and run your first commands as an IT manager.",
+      "estimatedMinutes": 20,
+      "tags": ["beginner", "setup"],
+      "prerequisites": []
+    },
+    {
+      "slug": "02-excel-automation",
+      "title": "Automating Excel Tasks",
+      "description": "Use Claude Code to generate formulas, clean data, build reports, and automate repetitive spreadsheet work.",
+      "estimatedMinutes": 35,
+      "tags": ["excel", "automation", "intermediate"],
+      "prerequisites": ["01-getting-started"]
+    },
+    {
+      "slug": "03-salesforce-integration",
+      "title": "Salesforce Administration with Claude",
+      "description": "Write SOQL queries, build reports, manage users, and automate Salesforce admin tasks using Claude Code.",
+      "estimatedMinutes": 40,
+      "tags": ["salesforce", "admin", "intermediate"],
+      "prerequisites": ["01-getting-started"]
+    },
+    {
+      "slug": "04-fishbowl-workflows",
+      "title": "Fishbowl Inventory Workflows",
+      "description": "Streamline inventory management, automate data exports, and optimize warehouse operations with Claude Code.",
+      "estimatedMinutes": 30,
+      "tags": ["fishbowl", "inventory", "intermediate"],
+      "prerequisites": ["01-getting-started"]
+    },
+    {
+      "slug": "05-document-generation",
+      "title": "Document Generation & Templates",
+      "description": "Create SOPs, user guides, reports, and other documents using Claude Code for consistent, professional output.",
+      "estimatedMinutes": 25,
+      "tags": ["documents", "templates", "intermediate"],
+      "prerequisites": ["01-getting-started"]
+    },
+    {
+      "slug": "06-advanced-prompting",
+      "title": "Advanced Prompting for IT Tasks",
+      "description": "Master prompt engineering techniques specific to IT management scenarios for maximum productivity.",
+      "estimatedMinutes": 30,
+      "tags": ["advanced", "prompting"],
+      "prerequisites": ["01-getting-started", "02-excel-automation"]
+    }
+  ]
+}

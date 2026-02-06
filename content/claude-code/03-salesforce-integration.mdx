@@ -1,0 +1,138 @@
+---
+title: "Salesforce Administration with Claude"
+description: "Write SOQL queries, build reports, manage users, and automate Salesforce admin tasks using Claude Code."
+estimatedMinutes: 40
+tags: ["salesforce", "admin", "intermediate"]
+---
+
+# Salesforce Administration with Claude
+
+As an IT manager deeply involved with Salesforce, you handle everything from user provisioning to report building to data migrations. Claude Code becomes your Salesforce power tool — think of it as having a Salesforce admin expert on call 24/7.
+
+## SOQL Query Generation
+
+### Finding Inactive Users
+
+Instead of clicking through the Salesforce UI, get the exact query:
+
+```bash
+claude "Write a SOQL query to find all active Salesforce users who haven't logged in within the past 60 days. Include their name, email, profile name, and last login date. Sort by last login date ascending."
+```
+
+Result:
+
+```sql
+SELECT Name, Email, Profile.Name, LastLoginDate
+FROM User
+WHERE IsActive = true
+AND LastLoginDate < LAST_N_DAYS:60
+ORDER BY LastLoginDate ASC
+```
+
+### Complex Report Queries
+
+```bash
+claude "Write a SOQL query to get a count of Opportunities grouped by Stage and the Owner's Department, but only for opportunities created this fiscal quarter with an amount greater than $10,000."
+```
+
+### Data Quality Checks
+
+```bash
+claude "Write a SOQL query to find all Contact records that have:
+1. No email address, OR
+2. A duplicate email address (same email as another contact), OR
+3. An AccountId that doesn't match any existing Account
+I need this for a data cleanup project."
+```
+
+## User Management
+
+### Bulk User Updates
+
+```bash
+claude "I need to deactivate 50 Salesforce users from a list in a CSV file. The CSV has columns: Username, Email, Reason. What's the best approach? Should I use Data Loader, the API, or something else? Walk me through the safest process."
+```
+
+### Permission Set Analysis
+
+```bash
+claude "Explain how to audit which users have the 'Modify All Data' permission in Salesforce. I need to create a report for our security review showing every user with this permission, whether it's from their Profile or a Permission Set."
+```
+
+## Report Building
+
+### Custom Report Types
+
+```bash
+claude "I need a Salesforce report that shows all Accounts with their related Contacts and the number of open Cases per Contact. What report type do I need, and what are the steps to build this in the Salesforce Report Builder?"
+```
+
+### Dashboard Formulas
+
+```bash
+claude "I'm building a Salesforce dashboard for the executive team. I need components showing:
+1. Open cases by priority (donut chart)
+2. Average case resolution time this month vs last month
+3. New accounts created this quarter by region
+4. Opportunity pipeline by stage (funnel chart)
+Walk me through creating each component."
+```
+
+## Automation with Flows
+
+### Automated Case Assignment
+
+```bash
+claude "Design a Salesforce Flow that automatically assigns incoming Cases based on:
+- If the Case Subject contains 'password' or 'login', assign to the IT Support queue
+- If the Account's Industry is 'Healthcare', assign to the Healthcare Support queue
+- Otherwise, assign to the General Support queue
+Include error handling and explain each Flow element."
+```
+
+### Lead Auto-Response
+
+```bash
+claude "Create a Salesforce Flow for lead management that:
+1. Triggers when a new Lead is created
+2. Checks if the lead's email domain matches any existing Account
+3. If matched, updates the Lead with the Account's owner
+4. Sends a notification to the Account owner
+5. If not matched, assigns to the round-robin queue
+Explain the Flow design step by step."
+```
+
+## Data Migration & Integration
+
+### Preparing Data for Import
+
+```bash
+claude "I need to migrate 5,000 contact records from a legacy system (CSV export) into Salesforce. The CSV columns don't match Salesforce field names. Help me:
+1. Map these CSV columns to Salesforce standard fields
+2. Create a Python script to transform the CSV into Salesforce-ready format
+3. Generate the Data Loader configuration
+CSV columns: first, last, company_name, phone1, email_addr, street, city, st, zip, last_updated"
+```
+
+### Integration Planning
+
+```bash
+claude "We need to integrate Salesforce with our Fishbowl inventory system. When a Salesforce Opportunity is marked 'Closed Won', we want to automatically create a Sales Order in Fishbowl. What are the integration options, and which would you recommend for a mid-size company? Consider: Salesforce Connect, middleware (MuleSoft, Zapier), or custom API integration."
+```
+
+## Practical Exercise
+
+Try these with your actual Salesforce org (using a sandbox if available):
+
+1. **Audit query** — Ask Claude to write a SOQL query for a data quality check you've been meaning to do
+2. **Report design** — Describe a report your executives have requested and get step-by-step build instructions
+3. **Flow design** — Describe a manual process you want to automate and get the Flow architecture
+4. **Data prep** — If you have a pending data migration, describe the source and target and get a transformation script
+
+## Tips for Salesforce + Claude Code
+
+- **Specify your Salesforce edition** — feature availability varies between Professional, Enterprise, and Unlimited
+- **Mention API limits** — Claude will factor in governor limits when suggesting approaches
+- **Ask about test coverage** — if you're writing Apex, ask Claude to generate test classes too
+- **Request rollback plans** — for any data changes, ask for a backup/rollback strategy
+- **Use sandbox first** — always test in a sandbox before touching production

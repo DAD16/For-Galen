@@ -1,0 +1,24 @@
+{
+  "title": "Quick Wins",
+  "description": "Short, standalone guides for common IT tasks. Each one takes 10 minutes or less and gives you an immediate productivity boost.",
+  "icon": "zap",
+  "authorId": "sarah-chen",
+  "modules": [
+    {
+      "slug": "vlookup-to-claude",
+      "title": "From VLOOKUP Headaches to Claude Solutions",
+      "description": "Stop wrestling with nested VLOOKUP formulas. Let Claude Code generate the perfect formula in seconds.",
+      "estimatedMinutes": 10,
+      "tags": ["excel", "quick"],
+      "prerequisites": []
+    },
+    {
+      "slug": "salesforce-report-automation",
+      "title": "Automate Salesforce Report Generation",
+      "description": "Use Claude Code to write SOQL queries and generate custom Salesforce reports faster than the Report Builder.",
+      "estimatedMinutes": 10,
+      "tags": ["salesforce", "quick"],
+      "prerequisites": []
+    }
+  ]
+}

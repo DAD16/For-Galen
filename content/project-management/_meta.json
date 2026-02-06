@@ -1,0 +1,40 @@
+{
+  "title": "Project Management Essentials",
+  "description": "Build practical project management skills tailored to IT department leadership. Plan, execute, and deliver IT projects with confidence.",
+  "icon": "kanban",
+  "authorId": "marcus-rivera",
+  "modules": [
+    {
+      "slug": "01-pm-fundamentals",
+      "title": "PM Fundamentals for IT Managers",
+      "description": "Core project management concepts adapted for IT department projects: scope, schedule, budget, and stakeholder management.",
+      "estimatedMinutes": 30,
+      "tags": ["beginner", "fundamentals"],
+      "prerequisites": []
+    },
+    {
+      "slug": "02-agile-for-it",
+      "title": "Agile Methods for IT Teams",
+      "description": "Apply Agile and Kanban methodologies to IT operations, software rollouts, and infrastructure projects.",
+      "estimatedMinutes": 35,
+      "tags": ["agile", "kanban", "intermediate"],
+      "prerequisites": ["01-pm-fundamentals"]
+    },
+    {
+      "slug": "03-stakeholder-management",
+      "title": "Stakeholder Communication",
+      "description": "Communicate effectively with executives, vendors, and team members. Build status reports and manage expectations.",
+      "estimatedMinutes": 25,
+      "tags": ["communication", "leadership"],
+      "prerequisites": ["01-pm-fundamentals"]
+    },
+    {
+      "slug": "04-tools-and-templates",
+      "title": "PM Tools & Templates",
+      "description": "Practical project management templates, checklists, and tools you can use immediately for IT projects.",
+      "estimatedMinutes": 30,
+      "tags": ["tools", "templates", "practical"],
+      "prerequisites": ["01-pm-fundamentals"]
+    }
+  ]
+}

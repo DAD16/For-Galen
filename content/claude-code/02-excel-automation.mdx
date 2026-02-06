@@ -1,0 +1,126 @@
+---
+title: "Automating Excel Tasks with Claude Code"
+description: "Use Claude Code to generate formulas, clean data, build reports, and automate repetitive spreadsheet work."
+estimatedMinutes: 35
+tags: ["excel", "automation", "intermediate"]
+---
+
+# Automating Excel Tasks with Claude Code
+
+As an IT manager, you likely spend hours each week on repetitive Excel tasks: building user reports, cleaning imported data, writing complex formulas, and maintaining spreadsheets. Claude Code can handle these in seconds.
+
+## Generating Complex Formulas
+
+Instead of wrestling with nested IF statements, describe what you need in plain English.
+
+### Example: User Department Lookup
+
+Instead of manually building this formula:
+
+```
+=IFERROR(VLOOKUP(A2,Sheet2!A:B,2,FALSE),"Unknown")
+```
+
+Just ask Claude Code:
+
+```bash
+claude "Write an Excel formula that looks up a user's department from Sheet2 column A-B, and if not found, returns 'Unknown'. The user ID is in cell A2."
+```
+
+### Example: Conditional Status Column
+
+```bash
+claude "I need an Excel formula for column D that checks: if column B (last login date) is more than 90 days ago, show 'Inactive'. If column C (department) is 'IT', show 'IT Staff'. Otherwise show 'Active'. Today's date should be calculated automatically."
+```
+
+Claude will generate something like:
+
+```
+=IF(TODAY()-B2>90,"Inactive",IF(C2="IT","IT Staff","Active"))
+```
+
+## Data Cleaning Workflows
+
+Real-world data is messy. Here's how Claude Code helps you clean it up.
+
+### Cleaning User Exports
+
+Say you exported a user list from Salesforce or your HR system and the data has inconsistencies:
+
+```bash
+claude "I have a CSV file called users.csv with columns: Name, Email, Department, Start Date. The problems are:
+1. Some names are ALL CAPS, some are lowercase
+2. Email domains are inconsistent (some @company.com, some @COMPANY.COM)
+3. Start dates are in mixed formats (MM/DD/YYYY and YYYY-MM-DD)
+Please write a Python script to clean this data and output a clean CSV."
+```
+
+### Removing Duplicates Intelligently
+
+```bash
+claude "Write a VBA macro that finds duplicate rows in my Excel sheet based on email address (column C), keeps the most recently modified entry (column F has the modified date), and moves the duplicates to a new sheet called 'Removed Duplicates' for review."
+```
+
+## Building Reports
+
+### Monthly User Activity Report
+
+```bash
+claude "I need an Excel template for a monthly IT user activity report. Include:
+- Total active users vs inactive (90+ days no login)
+- New users added this month
+- Users by department (pivot table)
+- License utilization percentage
+- Trend chart comparing this month to previous 3 months
+Create the formulas assuming raw data is on a sheet called 'Raw Data' with columns: UserID, Name, Email, Department, LastLogin, DateCreated, LicenseType"
+```
+
+### Automated Dashboard Formulas
+
+```bash
+claude "Write Excel formulas for a dashboard summary card that shows:
+1. Total count of rows in 'Data' sheet
+2. Count where Status column = 'Active'
+3. Percentage of active users
+4. Average days since last login
+The Data sheet starts at row 2 (row 1 is headers). Status is column E, LastLogin is column F."
+```
+
+## VBA Macros for Automation
+
+### Auto-Format New Data Imports
+
+```bash
+claude "Write a VBA macro called 'FormatImport' that:
+1. Selects all data in the active sheet
+2. Auto-fits all column widths
+3. Makes the header row bold with a light gray background
+4. Applies alternating row colors (white and very light blue)
+5. Adds borders to all cells with data
+6. Freezes the top row
+7. Sorts by column A ascending"
+```
+
+### One-Click Report Generator
+
+```bash
+claude "Write a VBA macro that takes data from 'Raw' sheet, creates a pivot table on a new sheet called 'Summary', grouping by Department (column C) and counting Users (column A), then creates a bar chart from the pivot table."
+```
+
+## Practical Exercise
+
+Try this with your own data. Open Claude Code and:
+
+1. **Describe your spreadsheet** — what columns do you have, what's in them?
+2. **Describe your goal** — what do you want to calculate, clean, or report on?
+3. **Ask Claude Code** to generate the formula, script, or macro
+4. **Test on a copy** of your data first (never on production data!)
+5. **Iterate** — if the result isn't quite right, tell Claude what to adjust
+
+## Tips for Excel + Claude Code
+
+- **Always specify your column layout** when asking for formulas
+- **Mention which Excel version** you're using (some functions differ between versions)
+- **Ask for error handling** — formulas with IFERROR or IFNA prevent #N/A and #REF! errors
+- **Request comments in VBA** — ask Claude to comment the macro code so you understand each step
+- **Start with a copy** — test any generated macros or formulas on a copy of your workbook

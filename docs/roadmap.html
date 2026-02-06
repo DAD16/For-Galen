@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Galen - Roadmap</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <a href="index.html" class="doc-logo">
+        <div class="doc-logo-icon">FG</div>
+        <div>
+          <div class="doc-logo-text">For Galen</div>
+          <div class="doc-logo-subtitle">Project Documentation</div>
+        </div>
+      </a>
+      <nav class="doc-nav">
+        <a href="index.html">Overview</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="personas.html">Personas</a>
+        <a href="roadmap.html" class="active">Roadmap</a>
+      </nav>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-hero">
+      <h1>Development Roadmap</h1>
+      <p>Phased implementation plan with milestone timeline and feature checklists.</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-value" style="color: var(--fg-green);">1</div>
+        <div class="stat-label">Phase Complete</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="color: var(--fg-blue);">1</div>
+        <div class="stat-label">In Progress</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Phases Planned</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">5</div>
+        <div class="stat-label">Total Phases</div>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Milestone Timeline</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker complete">1</div>
+          <div class="timeline-content">
+            <h3>Phase 1 - MVP Foundation <span class="badge badge-complete" style="margin-left: 8px;">Complete</span></h3>
+            <p>Core platform built and deploying. Navigable site with training content and AI chat.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker in-progress">2</div>
+          <div class="timeline-content">
+            <h3>Phase 2 - Personas, Skills & Polish <span class="badge badge-in-progress" style="margin-left: 8px;">In Progress</span></h3>
+            <p>AI persona system, interactive skills (Tutor + Coach), UI/UX improvements, project documentation.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker planned">3</div>
+          <div class="timeline-content">
+            <h3>Phase 3 - Database & Progress Tracking</h3>
+            <p>Supabase integration for persistent user data, authentication, and learning progress.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker planned">4</div>
+          <div class="timeline-content">
+            <h3>Phase 4 - Project Management Tools</h3>
+            <p>Full project tracker with kanban boards, task management, and timeline views.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker planned">5</div>
+          <div class="timeline-content">
+            <h3>Phase 5 - Content & Final Polish</h3>
+            <p>Complete all training content, add search, loading states, and responsive polish.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Phase 1 - MVP Foundation</h2>
+      </div>
+      <ul class="feature-list">
+        <li><span class="feature-check done">&#10003;</span>Scaffold Next.js 16 project with TypeScript, Tailwind CSS 4, shadcn/ui</li>
+        <li><span class="feature-check done">&#10003;</span>Build sidebar layout with 7 navigation items</li>
+        <li><span class="feature-check done">&#10003;</span>Create content directory with _meta.json files and MDX lessons</li>
+        <li><span class="feature-check done">&#10003;</span>Build MDX rendering pipeline with custom components (Callout, Quiz, StepByStep)</li>
+        <li><span class="feature-check done">&#10003;</span>Build /learn, /learn/[track], /learn/[track]/[slug] pages</li>
+        <li><span class="feature-check done">&#10003;</span>Build AI chat page with streaming via Vercel AI SDK v6</li>
+        <li><span class="feature-check done">&#10003;</span>Build context-aware chat with 6 domain modes</li>
+        <li><span class="feature-check done">&#10003;</span>Build dashboard page with quick actions and track overview</li>
+        <li><span class="feature-check done">&#10003;</span>Build custom course CRUD (create, edit, delete courses)</li>
+        <li><span class="feature-check done">&#10003;</span>Build interactive lesson chat (floating widget)</li>
+        <li><span class="feature-check done">&#10003;</span>Write 5 MDX lessons across 3 content tracks</li>
+        <li><span class="feature-check done">&#10003;</span>Build placeholder pages for Projects, Progress, Settings</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Phase 2 - Personas, Skills & Polish</h2>
+      </div>
+      <ul class="feature-list">
+        <li><span class="feature-check done">&#10003;</span>Create 4 AI personas with unique system prompts</li>
+        <li><span class="feature-check done">&#10003;</span>Build PersonaCard component (full, compact, badge variants)</li>
+        <li><span class="feature-check done">&#10003;</span>Add authorId to track _meta.json files</li>
+        <li><span class="feature-check done">&#10003;</span>Show persona on track pages ("Your Instructor")</li>
+        <li><span class="feature-check done">&#10003;</span>Show persona badge on lesson pages</li>
+        <li><span class="feature-check done">&#10003;</span>Inject persona system prompts into chat API routes</li>
+        <li><span class="feature-check done">&#10003;</span>Build Skills Hub page (/skills)</li>
+        <li><span class="feature-check done">&#10003;</span>Build Skill Tutor - 5-step interactive wizard</li>
+        <li><span class="feature-check done">&#10003;</span>Build Tutor API endpoint with learning plan generation</li>
+        <li><span class="feature-check done">&#10003;</span>Build Project Coach chat with Marcus Rivera</li>
+        <li><span class="feature-check done">&#10003;</span>Add Skills to sidebar navigation</li>
+        <li><span class="feature-check done">&#10003;</span>Redesign Dashboard with hero section and persona row</li>
+        <li><span class="feature-check done">&#10003;</span>Improve Training Hub with persona avatars</li>
+        <li><span class="feature-check done">&#10003;</span>Create project documentation HTML (4 pages + CSS)</li>
+        <li><span class="feature-check pending">&#9675;</span>Initialize git repository</li>
+        <li><span class="feature-check pending">&#9675;</span>Create CLAUDE.md project configuration</li>
+        <li><span class="feature-check pending">&#9675;</span>Deploy to Vercel</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Phase 3 - Database & Progress</h2>
+      </div>
+      <ul class="feature-list">
+        <li><span class="feature-check pending">&#9675;</span>Set up Supabase project and run migrations</li>
+        <li><span class="feature-check pending">&#9675;</span>Add Supabase Auth (email/password)</li>
+        <li><span class="feature-check pending">&#9675;</span>Build learning_progress table and API</li>
+        <li><span class="feature-check pending">&#9675;</span>Add "Mark as Complete" button to lessons</li>
+        <li><span class="feature-check pending">&#9675;</span>Build Progress dashboard with ring charts</li>
+        <li><span class="feature-check pending">&#9675;</span>Build activity calendar (contribution grid)</li>
+        <li><span class="feature-check pending">&#9675;</span>Persist chat history to database</li>
+        <li><span class="feature-check pending">&#9675;</span>Enrich Dashboard with real progress data</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Phase 4 - Project Management</h2>
+      </div>
+      <ul class="feature-list">
+        <li><span class="feature-check pending">&#9675;</span>Build project CRUD (API routes + UI)</li>
+        <li><span class="feature-check pending">&#9675;</span>Build task management (create, edit, delete, reorder)</li>
+        <li><span class="feature-check pending">&#9675;</span>Build kanban board with @dnd-kit drag-and-drop</li>
+        <li><span class="feature-check pending">&#9675;</span>Build task list view</li>
+        <li><span class="feature-check pending">&#9675;</span>Build timeline/Gantt view</li>
+        <li><span class="feature-check pending">&#9675;</span>Add project status tracking and priority badges</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Phase 5 - Content & Final Polish</h2>
+      </div>
+      <ul class="feature-list">
+        <li><span class="feature-check pending">&#9675;</span>Write remaining Claude Code lessons (04, 05, 06)</li>
+        <li><span class="feature-check pending">&#9675;</span>Write remaining PM lessons (02, 03, 04)</li>
+        <li><span class="feature-check pending">&#9675;</span>Write additional Quick Win guides</li>
+        <li><span class="feature-check pending">&#9675;</span>Add content search functionality</li>
+        <li><span class="feature-check pending">&#9675;</span>Add loading skeletons throughout</li>
+        <li><span class="feature-check pending">&#9675;</span>Add toast notifications for actions</li>
+        <li><span class="feature-check pending">&#9675;</span>Full responsive mobile layout</li>
+        <li><span class="feature-check pending">&#9675;</span>Performance optimization and bundle analysis</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Future Ideas</h2>
+      </div>
+      <div class="card-grid">
+        <div class="doc-card">
+          <h3>Save Chat as Lesson</h3>
+          <p>Convert interesting chat conversations into reusable training lessons that appear in My Courses.</p>
+        </div>
+        <div class="doc-card">
+          <h3>Export to Word/PDF</h3>
+          <p>Export project plans, status reports, and lessons to professional Word documents or PDFs.</p>
+        </div>
+        <div class="doc-card">
+          <h3>Spaced Repetition</h3>
+          <p>Automated review scheduling for completed lessons based on forgetting curves.</p>
+        </div>
+        <div class="doc-card">
+          <h3>Multi-User Support</h3>
+          <p>Extend the platform for Galen's team members with individual progress tracking.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      document.documentElement.classList.toggle('light');
+    }
+  </script>
+</body>
+</html>

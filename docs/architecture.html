@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Galen - Architecture</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <a href="index.html" class="doc-logo">
+        <div class="doc-logo-icon">FG</div>
+        <div>
+          <div class="doc-logo-text">For Galen</div>
+          <div class="doc-logo-subtitle">Project Documentation</div>
+        </div>
+      </a>
+      <nav class="doc-nav">
+        <a href="index.html">Overview</a>
+        <a href="architecture.html" class="active">Architecture</a>
+        <a href="personas.html">Personas</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-hero">
+      <h1>Technical Architecture</h1>
+      <p>Tech stack, file structure, and key design patterns powering the For Galen platform.</p>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Tech Stack</h2>
+      </div>
+      <table class="tech-table">
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>Technology</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Framework</td>
+            <td>Next.js 16 (App Router)</td>
+            <td>Vercel integration, RSC, file-based routing</td>
+          </tr>
+          <tr>
+            <td>UI Components</td>
+            <td>shadcn/ui (New York style)</td>
+            <td>22+ professional components with source ownership</td>
+          </tr>
+          <tr>
+            <td>Styling</td>
+            <td>Tailwind CSS 4</td>
+            <td>oklch color space, @theme inline, @plugin syntax</td>
+          </tr>
+          <tr>
+            <td>AI Chat</td>
+            <td>Vercel AI SDK v6</td>
+            <td>Streaming chat with DefaultChatTransport</td>
+          </tr>
+          <tr>
+            <td>AI Model</td>
+            <td>@ai-sdk/anthropic</td>
+            <td>Claude Sonnet 4 via first-party SDK</td>
+          </tr>
+          <tr>
+            <td>Content</td>
+            <td>MDX + gray-matter</td>
+            <td>Version-controlled lessons with React components</td>
+          </tr>
+          <tr>
+            <td>Icons</td>
+            <td>Lucide React</td>
+            <td>Consistent icon library (ships with shadcn)</td>
+          </tr>
+          <tr>
+            <td>Deployment</td>
+            <td>Vercel</td>
+            <td>Edge deployment, preview URLs, CI/CD</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>File Structure</h2>
+      </div>
+      <div class="code-block">for-galen/
+├── content/                    # MDX training content
+│   ├── claude-code/            # Claude Code track (6 modules)
+│   │   ├── _meta.json          # Track metadata + authorId
+│   │   ├── 01-getting-started.mdx
+│   │   └── ...
+│   ├── project-management/     # PM track (4 modules)
+│   └── quick-wins/             # Quick win guides (2 modules)
+├── data/
+│   └── custom-courses.json     # User-created courses
+├── docs/                       # Project documentation (this site)
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx          # Root: SidebarProvider + layout
+│   │   ├── page.tsx            # Dashboard with hero + personas
+│   │   ├── learn/              # Training Hub pages
+│   │   │   ├── [track]/        # Track detail + lesson pages
+│   │   │   └── page.tsx        # Track listing
+│   │   ├── ask/                # AI Assistant (ChatInterface)
+│   │   ├── skills/             # Skills Hub
+│   │   │   ├── tutor/          # Skill Tutor wizard
+│   │   │   └── coach/          # Project Coach chat
+│   │   ├── my-courses/         # Custom course CRUD
+│   │   ├── projects/           # Project tracker (planned)
+│   │   ├── progress/           # Progress dashboard (planned)
+│   │   └── api/
+│   │       ├── chat/           # Main + lesson chat endpoints
+│   │       ├── skills/         # Tutor + coach API
+│   │       └── courses/        # Custom course CRUD API
+│   ├── components/
+│   │   ├── layout/             # AppSidebar, SiteHeader
+│   │   ├── chat/               # ChatInterface
+│   │   ├── learn/              # LessonRenderer, LessonChat, MDX components
+│   │   ├── courses/            # CourseEditor, DeleteCourseButton
+│   │   ├── skills/             # TutorWizard steps, CoachChat
+│   │   └── ui/                 # shadcn components + PersonaCard
+│   └── lib/
+│       ├── ai/                 # personas.ts, system-prompt.ts, context-prompts.ts
+│       └── content/            # loader.ts, custom-courses.ts
+└── package.json</div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>AI Chat Architecture</h2>
+      </div>
+      <div class="code-block">Client (useChat hook + DefaultChatTransport)
+  │
+  ├── POST /api/chat
+  │   ├── Extracts: messages (UIMessage[]), context (string)
+  │   ├── Resolves persona via getPersonaForContext(context)
+  │   ├── Builds: BASE_SYSTEM_PROMPT + CONTEXT_PROMPT + persona.systemPromptAddition
+  │   ├── streamText({ model: claude-sonnet-4, system, messages })
+  │   └── Returns: toUIMessageStreamResponse() (SSE stream)
+  │
+  ├── POST /api/chat/lesson
+  │   ├── Extracts: messages, lessonTitle, lessonContent, trackSlug
+  │   ├── Resolves persona via getPersonaForTrack(trackSlug)
+  │   ├── Builds: BASE_PROMPT + lesson context + persona addition
+  │   └── Returns: streaming response
+  │
+  └── POST /api/skills/coach
+      ├── Injects Marcus Rivera's persona system prompt
+      ├── Adds PM-specific coaching context
+      └── Returns: streaming response</div>
+
+      <div class="note-box">
+        <strong>Key Pattern:</strong> All chat endpoints use <code>convertToModelMessages(messages)</code> (async) to transform UIMessage[] before passing to streamText(). The response uses <code>toUIMessageStreamResponse()</code> for SSE-compatible streaming.
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Persona System</h2>
+      </div>
+      <p style="color: var(--fg-text-muted); font-size: 14px; margin-bottom: 16px;">
+        Each AI persona is defined in <code>src/lib/ai/personas.ts</code> with a unique identity, teaching style, and system prompt injection. Personas are mapped to tracks and chat contexts.
+      </p>
+      <div class="code-block">// Persona mapping
+TRACK_PERSONA_MAP:
+  "claude-code"        → "sarah-chen"
+  "project-management" → "marcus-rivera"
+  "quick-wins"         → "sarah-chen"
+
+CONTEXT_PERSONA_MAP:
+  "general"    → "sarah-chen"
+  "excel"      → "james-okafor"
+  "salesforce" → "elena-kowalski"
+  "fishbowl"   → "elena-kowalski"
+  "documents"  → "james-okafor"
+  "pm"         → "marcus-rivera"</div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Content Pipeline</h2>
+      </div>
+      <div class="code-block">MDX File (content/claude-code/01-getting-started.mdx)
+  │
+  ├── gray-matter extracts frontmatter → meta object
+  ├── Content string → MDXRemote (next-mdx-remote/rsc)
+  │   ├── remarkGfm plugin for tables/strikethrough
+  │   └── Custom components: Callout, StepByStep, Quiz
+  │
+  └── generateStaticParams() at build time
+      ├── getTrackSlugs() → reads content/ directories
+      ├── getLessonSlugs(track) → reads .mdx files per track
+      └── Pre-renders all lesson routes as static pages</div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Key API Patterns</h2>
+      </div>
+      <div class="card-grid">
+        <div class="doc-card">
+          <h3>Vercel AI SDK v6</h3>
+          <p><code>useChat()</code> with <code>DefaultChatTransport</code> replaces the old api/body options. <code>sendMessage({ text })</code> replaces form submission. <code>status</code> field replaces <code>isLoading</code>.</p>
+        </div>
+        <div class="doc-card">
+          <h3>Tailwind CSS 4</h3>
+          <p>Uses <code>@theme inline</code> block for CSS variables, <code>@plugin</code> for typography. oklch color space. Dark/light themes via CSS custom properties in :root/.dark.</p>
+        </div>
+        <div class="doc-card">
+          <h3>Next.js 16 Params</h3>
+          <p>Dynamic route params are now async: <code>params: Promise&lt;{ slug: string }&gt;</code>. Must <code>await params</code> before accessing values.</p>
+        </div>
+        <div class="doc-card">
+          <h3>Custom Courses</h3>
+          <p>JSON file storage at <code>data/custom-courses.json</code>. API routes at <code>/api/courses</code> for GET/POST and <code>/api/courses/[id]</code> for GET/PUT/DELETE.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      document.documentElement.classList.toggle('light');
+    }
+  </script>
+</body>
+</html>

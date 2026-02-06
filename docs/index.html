@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Galen - Project Overview</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <a href="index.html" class="doc-logo">
+        <div class="doc-logo-icon">FG</div>
+        <div>
+          <div class="doc-logo-text">For Galen</div>
+          <div class="doc-logo-subtitle">Project Documentation</div>
+        </div>
+      </a>
+      <nav class="doc-nav">
+        <a href="index.html" class="active">Overview</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="personas.html">Personas</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+        <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-hero">
+      <h1>For Galen</h1>
+      <p>A personalized IT Manager Training Platform featuring AI-powered learning paths, expert personas, and project management tools.</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-value">12</div>
+        <div class="stat-label">Total Lessons</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Learning Tracks</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">4</div>
+        <div class="stat-label">AI Personas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">2</div>
+        <div class="stat-label">Skills Available</div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Current Status:</strong> Phase 2 is in progress. Persona system and Skills (Tutor + Project Coach) are being implemented. Phase 1 (MVP foundation) is complete.
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Project Summary</h2>
+      </div>
+      <p style="color: var(--fg-text-muted); font-size: 14px; margin-bottom: 24px;">
+        For Galen is a Next.js web application deployed on Vercel, designed as a personalized training hub for Galen, an IT Manager. The platform covers Claude Code automation, project management, Excel, Salesforce, Fishbowl, and document management through curated courses authored by distinct AI expert personas.
+      </p>
+
+      <div class="card-grid">
+        <div class="doc-card">
+          <h3>Training Hub</h3>
+          <p>Curated MDX-based learning tracks with custom components (Callout, Quiz, StepByStep). Lessons are authored by AI personas with unique teaching styles.</p>
+        </div>
+        <div class="doc-card">
+          <h3>AI Assistant</h3>
+          <p>Context-aware streaming chat powered by Claude Sonnet. Six domain contexts (Excel, Salesforce, Fishbowl, Documents, PM, General) with persona-injected prompts.</p>
+        </div>
+        <div class="doc-card">
+          <h3>Skills System</h3>
+          <p>Interactive Skill Tutor (5-step assessment wizard) and Project Coach (Marcus Rivera PM chat). Personalized learning path generation.</p>
+        </div>
+        <div class="doc-card">
+          <h3>Custom Courses</h3>
+          <p>Galen can create his own training materials with a Markdown editor, tag management, and full CRUD support. Courses include interactive lesson chat.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Phase Overview</h2>
+      </div>
+
+      <div class="phase-card complete">
+        <div class="phase-card-header">
+          <h3>Phase 1 - MVP Foundation</h3>
+          <span class="badge badge-complete">Complete</span>
+        </div>
+        <p>Core platform with navigation, training content, AI chat, custom courses, and lesson interaction.</p>
+        <ul>
+          <li>Next.js 16 project with shadcn/ui and Tailwind CSS 4</li>
+          <li>Sidebar layout with 7 navigation items</li>
+          <li>MDX rendering pipeline with custom components</li>
+          <li>AI chat with 6 context modes via Vercel AI SDK</li>
+          <li>Custom course CRUD with Markdown editor</li>
+          <li>Interactive lesson chat (floating widget)</li>
+          <li>5 initial lessons written across 3 tracks</li>
+        </ul>
+      </div>
+
+      <div class="phase-card in-progress">
+        <div class="phase-card-header">
+          <h3>Phase 2 - Personas, Skills & Polish</h3>
+          <span class="badge badge-in-progress">In Progress</span>
+        </div>
+        <p>AI persona system, Skills Hub with Tutor and Coach, UI/UX improvements, project documentation.</p>
+        <ul>
+          <li>4 AI expert personas (Sarah Chen, Marcus Rivera, Elena Kowalski, James Okafor)</li>
+          <li>Skill Tutor - 5-step interactive assessment wizard</li>
+          <li>Project Coach - PM coaching chat with Marcus Rivera</li>
+          <li>Dashboard redesign with hero section and instructor row</li>
+          <li>Persona integration across all pages and chat</li>
+          <li>Project documentation HTML files (this site)</li>
+        </ul>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-card-header">
+          <h3>Phase 3 - Database & Progress</h3>
+          <span class="badge badge-planned">Planned</span>
+        </div>
+        <p>Supabase integration for persistent data, user authentication, and progress tracking.</p>
+        <ul>
+          <li>Supabase setup with Row Level Security</li>
+          <li>Authentication (email/password)</li>
+          <li>Lesson completion tracking with progress API</li>
+          <li>Progress dashboard with charts</li>
+          <li>Chat history persistence</li>
+        </ul>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-card-header">
+          <h3>Phase 4 - Project Management</h3>
+          <span class="badge badge-planned">Planned</span>
+        </div>
+        <p>Full project tracker with kanban boards, task management, and timeline views.</p>
+        <ul>
+          <li>Project CRUD (API + UI)</li>
+          <li>Task management with drag-and-drop kanban</li>
+          <li>Timeline/Gantt view</li>
+          <li>Three project views: Board, List, Timeline</li>
+        </ul>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-card-header">
+          <h3>Phase 5 - Content & Polish</h3>
+          <span class="badge badge-planned">Planned</span>
+        </div>
+        <p>Remaining training content, search, and final polish.</p>
+        <ul>
+          <li>Write all remaining MDX lessons</li>
+          <li>Content search functionality</li>
+          <li>Loading skeletons and toast notifications</li>
+          <li>Full responsive mobile layout</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Quick Links</h2>
+      </div>
+      <div class="card-grid">
+        <a href="architecture.html" class="doc-card" style="text-decoration: none; color: inherit;">
+          <h3>Architecture &rarr;</h3>
+          <p>Tech stack, file structure, AI chat flow, data patterns.</p>
+        </a>
+        <a href="personas.html" class="doc-card" style="text-decoration: none; color: inherit;">
+          <h3>AI Personas &rarr;</h3>
+          <p>Meet the 4 expert instructors and their teaching styles.</p>
+        </a>
+        <a href="roadmap.html" class="doc-card" style="text-decoration: none; color: inherit;">
+          <h3>Roadmap &rarr;</h3>
+          <p>Detailed development timeline with feature checklists.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      document.documentElement.classList.toggle('light');
+    }
+  </script>
+</body>
+</html>

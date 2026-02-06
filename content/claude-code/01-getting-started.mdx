@@ -1,0 +1,108 @@
+---
+title: "Getting Started with Claude Code"
+description: "Install Claude Code, understand the basics, and run your first commands as an IT manager."
+estimatedMinutes: 20
+tags: ["beginner", "setup"]
+---
+
+# Getting Started with Claude Code
+
+Welcome, Galen! This module will get you up and running with Claude Code — a powerful AI-powered command-line tool that can dramatically speed up your IT management tasks.
+
+## What is Claude Code?
+
+Claude Code is Anthropic's official CLI (command-line interface) for Claude. Unlike the web chat, Claude Code can:
+
+- **Read and write files** on your computer
+- **Run commands** in your terminal
+- **Search through codebases** and documents
+- **Generate scripts, reports, and documents** based on your instructions
+- **Automate repetitive tasks** that eat into your day
+
+As an IT manager working with Excel, Salesforce, Fishbowl, and various documents, Claude Code becomes your most powerful productivity tool.
+
+## Installation
+
+### Step 1: Install Node.js
+
+Claude Code requires Node.js 18 or later. Download it from [nodejs.org](https://nodejs.org) and run the installer.
+
+Verify the installation by opening your terminal:
+
+```bash
+node --version
+```
+
+You should see something like `v20.x.x` or higher.
+
+### Step 2: Install Claude Code
+
+Open your terminal and run:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+### Step 3: Authenticate
+
+Run Claude Code for the first time:
+
+```bash
+claude
+```
+
+Follow the prompts to connect your Anthropic account. You'll need an API key from [console.anthropic.com](https://console.anthropic.com).
+
+## Your First Commands
+
+Once authenticated, try these commands that are directly relevant to your work:
+
+### Ask a Quick Question
+
+```bash
+claude "What's the Excel formula to count unique values in column A?"
+```
+
+### Generate a Document
+
+```bash
+claude "Create a standard operating procedure template for onboarding new software users"
+```
+
+### Get Salesforce Help
+
+```bash
+claude "Write a SOQL query to find all active contacts who haven't been updated in 90 days"
+```
+
+## How Claude Code Fits Your Role
+
+As an IT Manager, here's how Claude Code maps to your daily work:
+
+| Your Task | How Claude Code Helps |
+|---|---|
+| Excel spreadsheets | Generates complex formulas, VBA macros, data cleaning scripts |
+| Salesforce admin | Writes SOQL queries, explains configurations, generates reports |
+| Fishbowl operations | Helps with data exports, integration scripts, workflow documentation |
+| User documentation | Creates SOPs, guides, and templates in seconds |
+| Project planning | Breaks down projects, creates timelines, writes status reports |
+
+## Key Tips for IT Managers
+
+1. **Be specific about your context.** Instead of "help with Excel", say "I have a spreadsheet with employee names in column A and departments in column B. I need a formula that..."
+
+2. **Tell Claude about your tools.** Mention that you're using Salesforce, Fishbowl, or specific Excel versions so it gives relevant answers.
+
+3. **Ask for step-by-step instructions.** Claude Code excels at breaking down complex tasks into manageable steps.
+
+4. **Review before applying.** Always check generated formulas, queries, or scripts before using them on production data.
+
+## What's Next?
+
+In the following modules, we'll dive deep into using Claude Code for:
+- **Excel automation** — formulas, macros, and data processing
+- **Salesforce administration** — queries, reports, and user management
+- **Fishbowl workflows** — inventory operations and integrations
+- **Document generation** — SOPs, templates, and reports
+
+Each module includes practical exercises tailored to your specific tools and responsibilities.

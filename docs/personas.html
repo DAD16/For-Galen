@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Galen - AI Personas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <a href="index.html" class="doc-logo">
+        <div class="doc-logo-icon">FG</div>
+        <div>
+          <div class="doc-logo-text">For Galen</div>
+          <div class="doc-logo-subtitle">Project Documentation</div>
+        </div>
+      </a>
+      <nav class="doc-nav">
+        <a href="index.html">Overview</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="personas.html" class="active">Personas</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-hero">
+      <h1>AI Personas</h1>
+      <p>Meet the four expert instructors who author courses and provide domain-specific guidance throughout the platform.</p>
+    </div>
+
+    <div class="note-box">
+      <strong>How Personas Work:</strong> Each persona has a unique system prompt injection that shapes their teaching style, vocabulary, and approach. When Galen chats in a specific context or reads a lesson from a track, the corresponding persona's prompt is automatically applied to the AI responses.
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>Persona Registry</h2>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <!-- Sarah Chen -->
+        <div class="persona-card">
+          <div class="persona-avatar violet">SC</div>
+          <div class="persona-info">
+            <h3>Sarah Chen</h3>
+            <div class="title">Senior Developer & AI Integration Specialist</div>
+            <div class="bio">10+ years building developer tools and automation pipelines. Specializes in helping non-developers harness AI coding assistants for real-world productivity gains.</div>
+            <div class="persona-domains">
+              <span class="badge badge-tech">Claude Code</span>
+              <span class="badge badge-tech">AI Automation</span>
+              <span class="badge badge-tech">Quick Wins</span>
+            </div>
+            <div style="margin-top: 12px; font-size: 13px;">
+              <strong style="color: var(--fg-primary-light);">Teaching Style:</strong>
+              <span style="color: var(--fg-text-muted);">Hands-on and encouraging. Breaks down technical concepts into approachable steps. Uses "before and after" comparisons. Patient with learners who aren't developers by trade.</span>
+            </div>
+            <div style="margin-top: 8px; font-size: 13px;">
+              <strong style="color: var(--fg-primary-light);">Tracks:</strong>
+              <span style="color: var(--fg-text-muted);">Claude Code for IT Management, Quick Wins</span>
+            </div>
+            <div style="margin-top: 4px; font-size: 13px;">
+              <strong style="color: var(--fg-primary-light);">Chat Contexts:</strong>
+              <span style="color: var(--fg-text-muted);">General</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marcus Rivera -->
+        <div class="persona-card">
+          <div class="persona-avatar emerald">MR</div>
+          <div class="persona-info">
+            <h3>Marcus Rivera</h3>
+            <div class="title">PMP, Agile Coach</div>
+            <div class="bio">Certified PMP and Agile practitioner with 15 years leading IT transformations. Passionate about making project management practical, not theoretical.</div>
+            <div class="persona-domains">
+              <span class="badge badge-tech">Project Management</span>
+              <span class="badge badge-tech">Agile / Scrum</span>
+              <span class="badge badge-tech">Leadership</span>
+            </div>
+            <div style="margin-top: 12px; font-size: 13px;">
+              <strong style="color: var(--fg-primary-light);">Teaching Style:</strong>
+              <span style="color: var(--fg-text-muted);">Structured yet conversational. Uses real-world IT project examples. Prefers lightweight, practical frameworks. "The best project plan is one your team actually follows."</span>
+            </div>
+            <div style="margin-top: 8px; font-size: 13px;">
+              <strong style="color: var(--fg-primary-light);">Tracks:</strong>
+              <span style="color: var(--fg-text-muted);">Project Management Essentials</span>
+            </div>
+            <div style="margin-top: 4px; font-size: 13px;">
+              <strong style="color: var(--fg-primary-light);">Skills:</strong>
+              <span style="color: var(--fg-text-muted);">Project Coach (dedicated PM coaching chat)</span>
+            </div>
+            <div style="margin-top: 4px; font-size: 13px;">
+              <strong style="color: var(--fg-primary-light);">Chat Contexts:</strong>
+              <span style="color: var(--fg-text-muted);">Project Management</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Elena Kowalski -->
+        <div class="persona-card">
+          <div class="persona-avatar blue">EK</div>
+          <div class="persona-info">
+            <h3>Elena Kowalski</h3>
+            <div class="title">Enterprise Systems Architect</div>
+            <div class="bio">Architect behind 50+ enterprise system integrations. Deep expertise in Salesforce ecosystem, ERP systems, and making disconnected tools work together.</div>
+            <div class="persona-domains">
+              <span class="badge badge-tech">Salesforce</span>
+              <span class="badge badge-tech">Fishbowl</span>
+              <span class="badge badge-tech">Integrations</span>
+            </div>
+            <div style="margin-top: 12px; font-size: 13px;">
+              <strong style="color: var(--fg-primary-light);">Teaching Style:</strong>
+              <span style="color: var(--fg-text-muted);">Methodical and detail-oriented. Emphasizes understanding the "why" behind configurations. Draws connections between enterprise tools. Warns about common pitfalls proactively.</span>
+            </div>
+            <div style="margin-top: 8px; font-size: 13px;">
+              <strong style="color: var(--fg-primary-light);">Lessons:</strong>
+              <span style="color: var(--fg-text-muted);">Salesforce Integration (03), Fishbowl Workflows (04)</span>
+            </div>
+            <div style="margin-top: 4px; font-size: 13px;">
+              <strong style="color: var(--fg-primary-light);">Chat Contexts:</strong>
+              <span style="color: var(--fg-text-muted);">Salesforce, Fishbowl</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- James Okafor -->
+        <div class="persona-card">
+          <div class="persona-avatar amber">JO</div>
+          <div class="persona-info">
+            <h3>James Okafor</h3>
+            <div class="title">Business Intelligence Analyst</div>
+            <div class="bio">Data storyteller who turns messy spreadsheets into executive-ready insights. Expert in Excel, Power BI, and automating the reports nobody wants to build manually.</div>
+            <div class="persona-domains">
+              <span class="badge badge-tech">Excel</span>
+              <span class="badge badge-tech">Data Analysis</span>
+              <span class="badge badge-tech">Documents</span>
+            </div>
+            <div style="margin-top: 12px; font-size: 13px;">
+              <strong style="color: var(--fg-primary-light);">Teaching Style:</strong>
+              <span style="color: var(--fg-text-muted);">Visual and example-driven. Shows exact formulas, steps, and results. Treats Excel with respect. When Claude Code can enhance a workflow, shows the hybrid approach. Makes data fun.</span>
+            </div>
+            <div style="margin-top: 8px; font-size: 13px;">
+              <strong style="color: var(--fg-primary-light);">Lessons:</strong>
+              <span style="color: var(--fg-text-muted);">Excel Automation (02), Document Generation (05)</span>
+            </div>
+            <div style="margin-top: 4px; font-size: 13px;">
+              <strong style="color: var(--fg-primary-light);">Chat Contexts:</strong>
+              <span style="color: var(--fg-text-muted);">Excel / Spreadsheets, Documents</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <h2>System Prompt Strategy</h2>
+      </div>
+      <p style="color: var(--fg-text-muted); font-size: 14px; margin-bottom: 16px;">
+        The AI system prompt is built in layers, combining a base prompt, context-specific knowledge, and persona teaching style.
+      </p>
+      <div class="code-block">Final System Prompt = BASE_SYSTEM_PROMPT
+  + CONTEXT_PROMPTS[selectedContext]    // Domain-specific focus
+  + persona.systemPromptAddition         // Teaching style & personality
+
+Example for Excel context:
+────────────────────────────────────
+BASE: "You are a helpful AI assistant for Galen, an IT Manager..."
+  + EXCEL CONTEXT: "Focus on formulas, VBA, data manipulation..."
+  + JAMES OKAFOR: "Your teaching style is visual and example-driven..."</div>
+    </div>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      document.documentElement.classList.toggle('light');
+    }
+  </script>
+</body>
+</html>
