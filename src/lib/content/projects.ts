@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
+import { getDataFilePath } from "@/lib/data-dir";
 
-const DATA_DIR = path.join(process.cwd(), "data");
-const PROJECTS_FILE = path.join(DATA_DIR, "projects.json");
+const PROJECTS_FILE = getDataFilePath("projects.json");
 
 export type Priority = "low" | "medium" | "high" | "urgent";
 
@@ -46,23 +46,21 @@ function generateId(prefix: string): string {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
-function ensureDataDir() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
-}
-
 function readProjects(): Project[] {
-  ensureDataDir();
-  if (!fs.existsSync(PROJECTS_FILE)) {
+  try {
+    if (!fs.existsSync(PROJECTS_FILE)) return [];
+    const raw = fs.readFileSync(PROJECTS_FILE, "utf-8");
+    return JSON.parse(raw);
+  } catch {
     return [];
   }
-  const raw = fs.readFileSync(PROJECTS_FILE, "utf-8");
-  return JSON.parse(raw);
 }
 
 function writeProjects(projects: Project[]) {
-  ensureDataDir();
+  const dir = path.dirname(PROJECTS_FILE);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
   fs.writeFileSync(PROJECTS_FILE, JSON.stringify(projects, null, 2));
 }
 

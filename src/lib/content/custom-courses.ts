@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
+import { getDataFilePath } from "@/lib/data-dir";
 
-const DATA_DIR = path.join(process.cwd(), "data");
-const COURSES_FILE = path.join(DATA_DIR, "custom-courses.json");
+const COURSES_FILE = getDataFilePath("custom-courses.json");
 
 export interface CustomCourse {
   id: string;
@@ -14,23 +14,21 @@ export interface CustomCourse {
   updatedAt: string;
 }
 
-function ensureDataDir() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
-}
-
 function readCourses(): CustomCourse[] {
-  ensureDataDir();
-  if (!fs.existsSync(COURSES_FILE)) {
+  try {
+    if (!fs.existsSync(COURSES_FILE)) return [];
+    const raw = fs.readFileSync(COURSES_FILE, "utf-8");
+    return JSON.parse(raw);
+  } catch {
     return [];
   }
-  const raw = fs.readFileSync(COURSES_FILE, "utf-8");
-  return JSON.parse(raw);
 }
 
 function writeCourses(courses: CustomCourse[]) {
-  ensureDataDir();
+  const dir = path.dirname(COURSES_FILE);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
   fs.writeFileSync(COURSES_FILE, JSON.stringify(courses, null, 2));
 }
 
