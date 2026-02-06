@@ -1,0 +1,139 @@
+---
+title: "Fishbowl Inventory Workflows"
+description: "Streamline inventory management, automate data exports, and optimize warehouse operations with Claude Code."
+estimatedMinutes: 30
+tags: ["fishbowl", "inventory", "intermediate"]
+---
+
+# Fishbowl Inventory Workflows
+
+Fishbowl is the backbone of your warehouse and inventory operations. Claude Code can help you automate reports, troubleshoot discrepancies, write custom queries against the Fishbowl database, and streamline the manual processes that eat up your team's time.
+
+## Inventory Reports & Queries
+
+### Stock Level Summary
+
+```bash
+claude "Write a SQL query for the Fishbowl MySQL database that shows current inventory levels for all active parts, including: Part Number, Description, Location, Quantity On Hand, Quantity Allocated, and Quantity Available. Sort by parts that are below their reorder point first."
+```
+
+### Slow-Moving Inventory
+
+```bash
+claude "Write a Fishbowl MySQL query to identify slow-moving inventory — parts that have had zero sales orders in the last 90 days but still have quantity on hand greater than zero. Include the part number, description, current QOH, last sold date, and total inventory value (QOH × average cost)."
+```
+
+### Inventory Valuation Report
+
+```bash
+claude "Create a SQL query for Fishbowl that generates an inventory valuation report grouped by location group. Show: location group name, total number of SKUs, total quantity on hand, total inventory value at average cost, and total value at standard cost. Add a grand total row."
+```
+
+## Automating Data Exports
+
+### Daily Inventory Snapshot
+
+```bash
+claude "Write a Python script that connects to the Fishbowl MySQL database and exports a daily inventory snapshot to CSV. Include: Part Number, Description, UOM, Location, QOH, Reorder Point, and Last Cycle Count Date. The script should:
+1. Save the CSV with today's date in the filename
+2. Only include active parts with QOH > 0
+3. Email the CSV to the warehouse manager
+4. Log the export results"
+```
+
+### Purchase Order Tracking
+
+```bash
+claude "Create a Python script that queries Fishbowl for all open Purchase Orders and generates a summary report showing:
+- PO Number, Vendor Name, Date Created, Expected Delivery Date
+- Line items with part number, qty ordered, qty received, qty remaining
+- Flag any POs that are past their expected delivery date
+Export to both CSV and a formatted HTML email."
+```
+
+## Discrepancy Investigation
+
+### Inventory Variance Analysis
+
+```bash
+claude "I'm seeing discrepancies between Fishbowl inventory counts and our physical counts. Help me write SQL queries to investigate:
+1. Parts where the QOH changed in the last 7 days without a corresponding pick, receive, or cycle count
+2. Transfer orders that were initiated but not completed
+3. Parts with negative available quantities
+4. Recent adjustments grouped by reason code and user"
+```
+
+### BOM Accuracy Check
+
+```bash
+claude "Write a SQL query for Fishbowl that validates Bill of Materials accuracy. Find any BOMs where:
+1. A component part has been marked inactive
+2. The BOM references a part number that doesn't exist
+3. The component quantity is zero or negative
+4. The BOM hasn't been updated in over a year
+This is for our quarterly BOM audit."
+```
+
+## Workflow Automation
+
+### Reorder Point Alerts
+
+```bash
+claude "Design a workflow that checks Fishbowl daily for parts that have fallen below their reorder point and don't already have an open PO. Generate:
+1. A list of parts to reorder with suggested quantities (based on average monthly usage × 2)
+2. Group them by preferred vendor
+3. Send an email summary to the purchasing team
+Write this as a Python script I can schedule with Windows Task Scheduler."
+```
+
+### Receiving Process
+
+```bash
+claude "Our receiving process is manual and error-prone. Design an improved workflow where:
+1. Warehouse scans the PO barcode when a shipment arrives
+2. System validates the PO exists and is open
+3. Each item is scanned and compared against PO line items
+4. Discrepancies are flagged immediately
+5. A receiving report is generated and emailed
+What Fishbowl features and API calls would we use for each step?"
+```
+
+## Integration with Other Systems
+
+### Fishbowl-to-Salesforce Sync
+
+```bash
+claude "We need to keep Salesforce product records in sync with Fishbowl inventory. When a part's QOH changes in Fishbowl, the corresponding Salesforce Product record should update its 'Stock Available' field. What's the best approach for near-real-time sync? Consider:
+- Fishbowl REST API capabilities
+- Salesforce API limits
+- Error handling and retry logic
+- A middleware option vs direct integration"
+```
+
+### Shipping Label Automation
+
+```bash
+claude "Write a Python script that takes a Fishbowl Sales Order number and:
+1. Pulls the shipping details (address, items, weights) from the Fishbowl API
+2. Generates a UPS or FedEx shipping label via their API
+3. Updates the Fishbowl SO with the tracking number
+4. Prints the label to our warehouse printer
+Outline the script structure and the API calls needed."
+```
+
+## Practical Exercise
+
+Try these with your Fishbowl environment (use test data if possible):
+
+1. **Inventory audit** — Ask Claude to write a query that finds discrepancies you've been wanting to investigate
+2. **Automated report** — Pick a report you manually pull weekly and let Claude write an automation script for it
+3. **Process improvement** — Describe a manual warehouse process and get a workflow design with Fishbowl API integration
+4. **Data cleanup** — Run an audit query to find inactive parts, orphaned BOMs, or stale data
+
+## Tips for Fishbowl + Claude Code
+
+- **Specify your Fishbowl version** — the database schema can differ between versions
+- **Include table names** — if you know the specific Fishbowl tables (part, product, qoh, etc.), mention them
+- **Test queries in read-only mode** — always run SELECT queries first before any UPDATE or DELETE
+- **Use the Fishbowl API** — for real-time integrations, the REST API is more reliable than direct database access
+- **Back up before changes** — snapshot your database before running bulk updates or migrations

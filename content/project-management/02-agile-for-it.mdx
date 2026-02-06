@@ -1,0 +1,146 @@
+---
+title: "Agile Methods for IT Teams"
+description: "Apply Agile and Kanban methodologies to IT operations, software rollouts, and infrastructure projects."
+estimatedMinutes: 35
+tags: ["agile", "kanban", "intermediate"]
+---
+
+# Agile Methods for IT Teams
+
+Traditional "waterfall" project management — plan everything upfront, execute in order — works fine when requirements are clear and stable. But IT projects rarely are. Agile gives you a framework to adapt as you go, delivering value in small increments instead of one big bang at the end.
+
+## Why Agile for IT Operations?
+
+You're not a software development shop, so why Agile? Because your work shares the same characteristics:
+
+- **Requirements change constantly** — the business pivots, a new security requirement lands, a vendor changes their API
+- **You can't predict everything** — that "simple" server migration turns into a DNS nightmare
+- **Users need results fast** — waiting 6 months for a perfect solution while they struggle with workarounds
+- **You learn as you go** — the first week of any project reveals things you didn't know in planning
+
+## Agile vs. Waterfall: A Real Example
+
+**Scenario:** Migrate 200 users from on-prem Exchange to Microsoft 365.
+
+**Waterfall approach:**
+1. Plan the entire migration (4 weeks)
+2. Build and configure the M365 tenant (3 weeks)
+3. Migrate all users at once over a weekend (1 weekend)
+4. Fix all the issues (??? weeks)
+
+**Agile approach:**
+1. Sprint 1: Set up M365 tenant, migrate IT team (5 people) — learn from it
+2. Sprint 2: Migrate one small department (15 people) — refine the process
+3. Sprint 3: Migrate two more departments (40 people) — scale up
+4. Sprint 4-6: Migrate remaining departments in batches — apply lessons learned
+5. Sprint 7: Decommission old Exchange server
+
+The Agile approach catches problems early (when 5 people are affected, not 200), builds confidence, and lets you refine the process with each batch.
+
+## Kanban for IT Operations
+
+Kanban is the most natural Agile method for IT teams because it maps directly to how IT work already flows.
+
+### Setting Up Your Board
+
+Use the Projects feature in this platform to create a kanban board with these columns:
+
+| Column | What Goes Here |
+|---|---|
+| **Backlog** | All incoming requests, ideas, and planned work |
+| **To Do** | Work committed for this week/sprint |
+| **In Progress** | Actively being worked on |
+| **Waiting** | Blocked — waiting on vendor, approval, user, etc. |
+| **Review** | Done but needs testing or approval |
+| **Done** | Completed and verified |
+
+### Work-in-Progress (WIP) Limits
+
+The most powerful Kanban concept: **limit how many items can be in progress at once.**
+
+If your IT team has 3 people, set a WIP limit of 3-5 for the "In Progress" column. This forces you to:
+
+- **Finish work** before starting new work
+- **Identify bottlenecks** — if the "Waiting" column keeps growing, that's a systemic issue
+- **Reduce context switching** — the #1 productivity killer for IT teams
+
+### Prioritization with Classes of Service
+
+Not all IT work is equal. Classify incoming requests:
+
+| Class | Examples | Response Time |
+|---|---|---|
+| **Expedite** | Security incident, system outage, executive escalation | Drop everything |
+| **High** | Server patching, compliance deadlines, blocked users | This week |
+| **Standard** | Feature requests, process improvements, documentation | This sprint |
+| **Low** | Nice-to-haves, research, optimization | When capacity allows |
+
+## Sprints for IT Projects
+
+A sprint is a fixed time period (usually 1-2 weeks) where you commit to completing specific work.
+
+### Sprint Planning
+
+Every Monday (or your chosen start day):
+
+1. **Review the backlog** — what's most important right now?
+2. **Estimate effort** — use T-shirt sizes (S/M/L/XL) instead of hours
+3. **Commit to a sprint goal** — "This week we'll complete the VPN migration for the sales team"
+4. **Assign owners** — every task has one person responsible
+
+### Daily Standups (15 minutes max)
+
+Three questions, go around the team:
+
+1. What did I complete yesterday?
+2. What am I working on today?
+3. Am I blocked on anything?
+
+**IT manager tip:** If you have a small team (2-4 people), a daily Slack check-in works just as well as a meeting. Save meetings for when someone is blocked.
+
+### Sprint Review & Retrospective
+
+At the end of each sprint:
+
+**Review (30 min):** What did we deliver? Demo completed work to stakeholders if applicable.
+
+**Retrospective (30 min):** Answer three questions as a team:
+- What went well?
+- What didn't go well?
+- What will we change next sprint?
+
+## Agile Metrics That Matter
+
+### For the Team
+
+- **Cycle Time** — how long does a task take from "To Do" to "Done"?
+- **Throughput** — how many tasks completed per sprint?
+- **WIP Age** — how long have current in-progress items been there? (Items older than 2x your average cycle time are red flags)
+
+### For Leadership
+
+- **Sprint Goal Completion** — did you achieve what you committed to? (Aim for 80%+)
+- **Blocked Time** — how much time was spent waiting vs. working?
+- **Unplanned Work Ratio** — what percentage of sprint work was unplanned? (If >40%, your planning needs work)
+
+## Common Pitfalls for IT Teams
+
+### 1. "We're too busy for process"
+If you're too busy to plan, you're too busy *not* to plan. Start small — a kanban board and a 15-minute Monday planning session.
+
+### 2. "Everything is urgent"
+If everything is urgent, nothing is. Use classes of service and force prioritization. Escalate to your manager if leadership won't prioritize.
+
+### 3. "Agile means no planning"
+Wrong. Agile means *adaptive* planning. You still plan — you just plan in smaller increments and adjust as you learn.
+
+### 4. "We tried it and it didn't work"
+Agile is a mindset, not a set of meetings. If standups feel pointless, they're too long or unfocused. If sprint planning is a chore, your backlog isn't maintained. Fix the practice, not the framework.
+
+## Getting Started This Week
+
+1. **Create a kanban board** — use the Projects feature right here. Set up columns: Backlog, To Do, In Progress, Waiting, Done
+2. **Dump everything on it** — every task, request, and project your team is tracking. Get it all visible
+3. **Set WIP limits** — start with: number of team members + 1
+4. **Schedule a 15-minute Monday planning session** — pick the top items for the week
+5. **At Friday end-of-day** — move completed items to Done, note what got stuck and why

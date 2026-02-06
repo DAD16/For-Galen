@@ -1,0 +1,312 @@
+---
+title: "PM Tools & Templates"
+description: "Practical project management templates, checklists, and tools you can use immediately for IT projects."
+estimatedMinutes: 30
+tags: ["tools", "templates", "practical"]
+---
+
+# PM Tools & Templates
+
+This module is a practical toolkit — ready-to-use templates and checklists for the most common IT project management scenarios. Bookmark this page and come back whenever you need to kick off a project, run a meeting, or communicate status.
+
+## Project Kickoff Template
+
+Use this to start any IT project on the right foot:
+
+```
+PROJECT BRIEF
+=============
+
+Project Name: _______________
+Project Manager: _______________
+Sponsor: _______________
+Start Date: _________    Target End: _________
+
+1. PROBLEM STATEMENT
+   What problem are we solving?
+   _______________________________________________
+
+2. SCOPE
+   IN SCOPE:
+   • _______________
+   • _______________
+   • _______________
+
+   OUT OF SCOPE:
+   • _______________
+   • _______________
+
+3. SUCCESS CRITERIA
+   How do we know we're done?
+   • _______________
+   • _______________
+
+4. KEY STAKEHOLDERS
+   Name          | Role          | Involvement Level
+   ______________|_______________|__________________
+   ______________|_______________|__________________
+
+5. ESTIMATED EFFORT
+   Duration: ___ weeks
+   IT Staff Hours: ___
+   Budget: $___
+
+6. RISKS
+   Risk                  | Impact | Mitigation
+   ______________________|________|___________________
+   ______________________|________|___________________
+
+7. APPROVALS
+   Sponsor: _______________  Date: _______
+   IT Manager: ____________  Date: _______
+```
+
+## Weekly Status Report Template
+
+Send this every Friday to your project stakeholders:
+
+```
+WEEKLY STATUS REPORT — [Project Name]
+Week of [Date]
+
+OVERALL STATUS: 🟢 On Track / 🟡 At Risk / 🔴 Off Track
+
+EXECUTIVE SUMMARY:
+[2-3 sentences: where we are, key accomplishment, any concerns]
+
+COMPLETED THIS WEEK:
+✅ [Task 1]
+✅ [Task 2]
+✅ [Task 3]
+
+IN PROGRESS:
+🔄 [Task 1] — [% complete, owner]
+🔄 [Task 2] — [% complete, owner]
+
+PLANNED FOR NEXT WEEK:
+📋 [Task 1]
+📋 [Task 2]
+
+RISKS & ISSUES:
+⚠️ [Risk/Issue] — [Impact] — [Mitigation/Action]
+
+DECISIONS NEEDED:
+❓ [Decision] — needed by [date] — from [person]
+
+METRICS:
+• Budget: $[spent] / $[total] ([%])
+• Schedule: Sprint [X] of [Y]
+• Open Issues: [X] (↑/↓ from last week)
+```
+
+## Meeting Templates
+
+### Sprint Planning Meeting (60 min)
+
+```
+AGENDA: Sprint Planning — Sprint [X]
+Date: [Monday]
+
+1. REVIEW (10 min)
+   • Last sprint: what did we complete vs. commit?
+   • Carry-over items (incomplete from last sprint)
+
+2. BACKLOG REVIEW (15 min)
+   • New items added since last sprint
+   • Priority changes from stakeholders
+   • Dependencies or blockers identified
+
+3. SPRINT COMMITMENT (25 min)
+   • Review top backlog items
+   • Estimate each (S/M/L/XL)
+   • Assign owners
+   • Commit to sprint goal:
+     "This sprint we will _________________"
+
+4. LOGISTICS (10 min)
+   • Team availability (PTO, meetings, on-call)
+   • Any resources needed (access, tools, vendor support)
+
+ACTION ITEMS:
+• [Owner]: [Task] by [Date]
+```
+
+### Retrospective Meeting (30 min)
+
+```
+SPRINT [X] RETROSPECTIVE
+Date: [Friday]
+
+1. WHAT WENT WELL? (10 min)
+   •
+   •
+   •
+
+2. WHAT DIDN'T GO WELL? (10 min)
+   •
+   •
+   •
+
+3. WHAT WILL WE CHANGE? (10 min)
+   Action: _______________  Owner: _______  By When: _______
+   Action: _______________  Owner: _______  By When: _______
+```
+
+## Risk Register Template
+
+Track project risks in a simple spreadsheet or table:
+
+| ID | Risk Description | Likelihood | Impact | Risk Score | Mitigation Strategy | Owner | Status |
+|---|---|---|---|---|---|---|---|
+| R1 | Vendor delivers integration late | High | High | Critical | Build 2-week buffer; identify backup vendor | Galen | Open |
+| R2 | Key team member on PTO during migration | Medium | High | High | Cross-train backup person before PTO | Galen | Mitigated |
+| R3 | Users resist new system | High | Medium | High | Early involvement; training; executive sponsor comms | Galen | Open |
+| R4 | Data migration has quality issues | Medium | Medium | Medium | Validate sample data first; automate validation checks | IT Team | Open |
+| R5 | Budget overrun on licenses | Low | Medium | Low | Get firm quote upfront; negotiate multi-year discount | Galen | Closed |
+
+**Risk Score Guide:**
+- **Likelihood × Impact** → Critical / High / Medium / Low
+- Review weekly in sprint planning
+- Close risks that no longer apply or have been fully mitigated
+
+## Change Request Template
+
+When scope needs to change mid-project:
+
+```
+CHANGE REQUEST
+==============
+
+CR Number: CR-[XXX]
+Date: _______________
+Requested By: _______________
+Project: _______________
+
+CHANGE DESCRIPTION:
+What is being requested?
+_______________________________________________
+
+REASON FOR CHANGE:
+Why is this needed?
+_______________________________________________
+
+IMPACT ANALYSIS:
+• Schedule Impact: [None / +X days / +X weeks]
+• Budget Impact: [None / +$X]
+• Resource Impact: [None / Needs X additional hours]
+• Risk Impact: [None / New risks introduced]
+
+OPTIONS:
+1. Approve as-is: [timeline and budget impact]
+2. Modified approach: [alternative with less impact]
+3. Defer: [add to future phase]
+4. Reject: [rationale]
+
+RECOMMENDATION: Option [X]
+
+APPROVALS:
+Project Manager: _______________ Date: _______
+Sponsor: _______________________ Date: _______
+```
+
+## Project Checklist Templates
+
+### System Migration Checklist
+
+```
+PRE-MIGRATION:
+□ Backup all data from source system
+□ Verify backup can be restored
+□ Document current system configuration
+□ Map data fields from old to new system
+□ Identify data that needs cleanup before migration
+□ Test migration with sample data set
+□ Create rollback plan and test it
+□ Schedule migration window with stakeholders
+□ Notify end users of downtime and timeline
+□ Prepare support team for post-migration issues
+
+MIGRATION DAY:
+□ Confirm final backup is complete
+□ Begin migration per documented procedure
+□ Validate data in new system (spot-check records)
+□ Run automated validation scripts
+□ Test critical business processes
+□ Verify integrations with other systems
+□ Get sign-off from key users
+
+POST-MIGRATION:
+□ Monitor system performance for 48 hours
+□ Track and resolve user-reported issues
+□ Verify all scheduled jobs/automations are running
+□ Decommission old system (after confirmation period)
+□ Update documentation and SOPs
+□ Conduct lessons-learned review
+□ Archive migration records
+```
+
+### New Software Rollout Checklist
+
+```
+PLANNING:
+□ Define business requirements and success criteria
+□ Evaluate vendors (minimum 3)
+□ Complete security review / vendor questionnaire
+□ Negotiate contract and pricing
+□ Get budget approval
+□ Plan integration with existing systems
+
+SETUP:
+□ Provision accounts and licenses
+□ Configure SSO / authentication
+□ Set up roles and permissions
+□ Configure integrations (API, data sync)
+□ Set up backup and monitoring
+□ Create test environment
+
+TESTING:
+□ Internal IT testing (functionality)
+□ Security testing (penetration, access controls)
+□ Integration testing (data flows correctly)
+□ User acceptance testing (representative users)
+□ Performance testing (acceptable load times)
+□ Document and resolve all test failures
+
+ROLLOUT:
+□ Create user training materials
+□ Conduct training sessions
+□ Communicate launch timeline to all users
+□ Staged rollout (pilot group → department → all)
+□ Dedicated support channel for first 2 weeks
+□ Daily monitoring of adoption metrics
+
+POST-LAUNCH:
+□ Gather user feedback (week 1 and week 4)
+□ Address top issues
+□ Optimize configuration based on usage patterns
+□ Update SOPs and documentation
+□ Close project and conduct retrospective
+```
+
+## Using Claude Code for Templates
+
+You can generate customized versions of any template instantly:
+
+```bash
+claude "Create a project brief for migrating our file server to SharePoint Online. Our company has 200 users, 2TB of files, and we need it done in 6 weeks. The budget is $25,000. Key risk: users are used to mapped drives and will resist the change."
+```
+
+```bash
+claude "Generate a risk register for a Salesforce-to-Fishbowl integration project. We're a mid-size distribution company with 3 IT staff. The integration needs to sync sales orders in near real-time."
+```
+
+```bash
+claude "Write a change request for adding mobile access to our project scope. Original scope was desktop-only Salesforce implementation. Adding mobile will need an additional 2 weeks and $3,000 for mobile licenses."
+```
+
+## Practical Exercise
+
+1. **Fill out a project brief** for an upcoming or current project using the template above
+2. **Write your first weekly status report** — even if it's just for yourself, the discipline of summarizing weekly is valuable
+3. **Build a risk register** with at least 5 risks for your current biggest project
+4. **Run a retrospective** at your next team meeting — even if you haven't been "doing Agile," reflect on what went well and what didn't

@@ -1,0 +1,81 @@
+---
+title: "Automate Salesforce Report Generation"
+description: "Use Claude Code to write SOQL queries and generate custom Salesforce reports faster than the Report Builder."
+estimatedMinutes: 10
+tags: ["salesforce", "quick"]
+---
+
+# Automate Salesforce Report Generation
+
+Stop clicking through the Salesforce Report Builder for routine reports. Claude Code can generate the exact SOQL query or report configuration you need in seconds.
+
+## The Problem
+
+Building a custom Salesforce report the traditional way:
+1. Navigate to Reports → New Report
+2. Pick a report type (is it Contacts & Accounts? Or Accounts with Contacts?)
+3. Add filters one by one
+4. Group rows and columns
+5. Add summary formulas
+6. Save, run, realize it's wrong, edit, repeat
+
+**With Claude Code:** Describe what you want in plain English, get the SOQL query immediately.
+
+## Quick Wins
+
+### Pipeline Report
+
+```bash
+claude "Write a SOQL query for a Salesforce pipeline report showing all open Opportunities grouped by Stage. Include: Opportunity Name, Account Name, Amount, Close Date, and Owner. Sort by Close Date ascending. Only include opportunities closing this quarter."
+```
+
+Result:
+
+```sql
+SELECT Name, Account.Name, Amount, CloseDate, Owner.Name, StageName
+FROM Opportunity
+WHERE IsClosed = false
+AND CloseDate = THIS_FISCAL_QUARTER
+ORDER BY CloseDate ASC
+```
+
+### Overdue Tasks
+
+```bash
+claude "SOQL query to find all overdue Tasks in Salesforce — where ActivityDate is in the past and Status is not 'Completed'. Include the task subject, who it's assigned to, the related account, and how many days overdue it is."
+```
+
+### Inactive Users Costing You Licenses
+
+```bash
+claude "SOQL query to find Salesforce users who are active (consuming a license) but haven't logged in for 90+ days. Include their name, email, profile, and last login date. This is for our quarterly license audit."
+```
+
+### Account Health Check
+
+```bash
+claude "Write a SOQL query that finds Accounts with no Activity (Tasks or Events) in the last 60 days but have open Opportunities. These are at-risk deals — we have pipeline but no recent engagement."
+```
+
+## Going Beyond SOQL
+
+### Report Type Guidance
+
+```bash
+claude "I need a Salesforce report that shows the number of Cases opened per month for the last 12 months, broken down by Case Origin (Email, Phone, Web). What report type should I use, and what are the exact steps to build it in the Report Builder?"
+```
+
+### Dashboard Component
+
+```bash
+claude "I need a dashboard chart showing our sales pipeline as a funnel — Prospecting at the top down to Closed Won at the bottom. Give me the steps to create this in Salesforce, including the underlying report I need first."
+```
+
+## Try It Now
+
+1. Think of a report you pull regularly from Salesforce
+2. Describe it to Claude in plain English
+3. Get the SOQL query and try it in Developer Console or Workbench
+4. Save it as a Salesforce report for one-click access going forward
+
+**Time saved:** What used to take 15-30 minutes of clicking through the Report Builder now takes 30 seconds of describing what you want.

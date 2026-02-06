@@ -1,0 +1,160 @@
+---
+title: "Document Generation & Templates"
+description: "Create SOPs, user guides, reports, and other documents using Claude Code for consistent, professional output."
+estimatedMinutes: 25
+tags: ["documents", "templates", "intermediate"]
+---
+
+# Document Generation & Templates
+
+As an IT manager, you constantly create documents — SOPs, user guides, change requests, status reports, post-mortems. Claude Code turns document creation from a multi-hour task into a multi-minute one while keeping everything consistent and professional.
+
+## Standard Operating Procedures
+
+### Creating an SOP from Scratch
+
+```bash
+claude "Write a Standard Operating Procedure for our IT department's new employee onboarding process. Include these steps:
+1. Account creation (Active Directory, email, Salesforce, Fishbowl)
+2. Hardware setup (laptop, monitors, peripherals)
+3. Software installation (standard stack: Office 365, Slack, VPN, antivirus)
+4. Security training enrollment
+5. First-week orientation checklist
+
+Format it with: Document ID, Version, Effective Date, Department, Purpose, Scope, Responsibilities, Procedure (numbered steps with sub-steps), and Revision History table."
+```
+
+### Updating an Existing SOP
+
+```bash
+claude "Here's our current password reset SOP:
+[paste existing SOP text]
+
+Update it to include:
+1. A new self-service password reset option via Microsoft SSPR
+2. MFA enrollment requirements
+3. Special handling for service accounts
+4. Escalation path for locked-out executives
+Keep the same format and numbering style."
+```
+
+## User Guides
+
+### End-User Software Guide
+
+```bash
+claude "Write a user guide for our non-technical staff explaining how to use the new VPN client. Assume the audience has basic computer skills. Include:
+1. What is a VPN and why we use it
+2. Installing the VPN client (Windows and Mac)
+3. Connecting to the VPN (with screenshots descriptions)
+4. Troubleshooting common issues (connection drops, slow speed, can't reach internal sites)
+5. When you need to use VPN vs when you don't
+Keep it friendly and jargon-free. Add a Quick Reference card at the end."
+```
+
+### Admin Configuration Guide
+
+```bash
+claude "Write a technical guide for IT staff on configuring our Salesforce SSO integration with Azure Active Directory. Include:
+1. Prerequisites (Azure AD Premium, Salesforce Enterprise Edition)
+2. Azure AD app registration steps
+3. SAML configuration in Salesforce
+4. User attribute mapping
+5. Testing the SSO connection
+6. Troubleshooting failed logins
+7. Rollback procedure if SSO breaks
+Target audience: junior IT admins who know Salesforce but are new to Azure AD."
+```
+
+## Status Reports & Updates
+
+### Weekly IT Status Report
+
+```bash
+claude "Generate a template for a weekly IT status report that covers:
+1. Executive Summary (3-4 bullet points)
+2. Projects Update (table with: Project, Status RAG, % Complete, Key Milestones, Risks)
+3. Incidents & Issues (table with: Ticket#, Priority, Description, Status, Owner)
+4. Upcoming Week (key activities and deadlines)
+5. Resource Requests (if any)
+6. Metrics (uptime %, tickets opened/closed, avg resolution time)
+
+Make it concise — executives should be able to scan it in 2 minutes."
+```
+
+### Project Status Email
+
+```bash
+claude "Draft a status update email for the Fishbowl-to-Salesforce integration project. Here are the facts:
+- Sprint 3 of 5 is complete
+- API integration is working in staging
+- We found a data mapping issue with product categories — adds 3 days
+- UAT starts next week
+- Budget is on track
+- One risk: the Fishbowl API rate limit might be too low for full sync
+
+Write it for the VP of Operations. Be honest about the delay but frame it constructively."
+```
+
+## Change Management Documents
+
+### Change Request Form
+
+```bash
+claude "Create a change request template for IT infrastructure changes. Include:
+1. Change Request ID and Date
+2. Requester information
+3. Change Description (what, why, how)
+4. Risk Assessment (impact level, probability, mitigation)
+5. Implementation Plan (steps, timeline, resources needed)
+6. Rollback Plan
+7. Testing Requirements
+8. Approval chain (IT Manager, Security, Department Head)
+9. Post-implementation review checklist
+
+Format it as a form with fill-in fields."
+```
+
+### Post-Incident Report
+
+```bash
+claude "Write a post-incident report template and fill it in with this scenario:
+- Incident: Email server went down for 2.5 hours on Tuesday morning
+- Cause: A Windows update caused the Exchange service to crash
+- Detection: Users reported at 8:15 AM, confirmed by monitoring at 8:20 AM
+- Resolution: Rolled back the update, service restored at 10:45 AM
+- Impact: 200 users couldn't send/receive email for 2.5 hours during peak hours
+
+Include: Timeline, Root Cause Analysis, Impact Assessment, Corrective Actions (with owners and due dates), and Lessons Learned."
+```
+
+## Batch Document Generation
+
+### Multiple Documents at Once
+
+```bash
+claude "I need to generate individualized system access request forms for 5 new hires starting next Monday. For each person, create a form with their name and pre-fill the standard software stack. Here are the new hires:
+1. Maria Santos - Marketing Coordinator (needs: Office 365, Salesforce read-only, Slack, Canva)
+2. Tom Wright - Warehouse Supervisor (needs: Office 365, Fishbowl full access, Slack, warehouse scanner app)
+3. Lisa Park - Sales Rep (needs: Office 365, Salesforce full access, Slack, DocuSign, LinkedIn Sales Navigator)
+4. James Reed - IT Support Technician (needs: full admin stack)
+5. Ana Chen - Accountant (needs: Office 365, Fishbowl read-only, QuickBooks, Slack)"
+```
+
+## Practical Exercise
+
+Create these documents for your actual environment:
+
+1. **SOP** — Pick a process your team does regularly but hasn't documented yet. Have Claude write the first draft
+2. **User guide** — Think of the last thing users asked you to explain. Turn it into a proper guide
+3. **Status report** — Generate next week's status report template pre-filled with your current projects
+4. **Change request** — Document an upcoming change you've been planning
+
+## Tips for Document Generation
+
+- **Provide real context** — the more specific details you give Claude, the more useful the output
+- **Specify the audience** — "for executives" produces very different documents than "for junior IT staff"
+- **Ask for formatting** — request specific formats (Markdown, HTML, plain text) to match your tools
+- **Iterate and refine** — treat the first output as a draft; ask Claude to adjust tone, add sections, or simplify
+- **Maintain a template library** — save your best Claude-generated templates for reuse
+- **Include your company's terminology** — mention specific system names, team names, and processes

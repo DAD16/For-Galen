@@ -1,0 +1,172 @@
+---
+title: "Stakeholder Communication"
+description: "Communicate effectively with executives, vendors, and team members. Build status reports and manage expectations."
+estimatedMinutes: 25
+tags: ["communication", "leadership"]
+---
+
+# Stakeholder Communication
+
+The best IT project in the world will fail if stakeholders don't understand it, trust it, or support it. As an IT manager, you're the translator between technical reality and business expectations. This module gives you practical frameworks for every communication scenario you'll face.
+
+## Know Your Stakeholders
+
+### The Stakeholder Map
+
+For any project, identify who cares and why:
+
+| Stakeholder | What They Care About | How to Communicate |
+|---|---|---|
+| **CEO/VP** | Business impact, ROI, timeline | 3-bullet summary, decisions needed |
+| **CFO** | Budget, cost savings, risk | Numbers, comparisons, ROI analysis |
+| **Department heads** | How it affects their team, timeline for disruption | Clear timeline, training plan |
+| **End users** | "Will this make my job harder?" | Simple language, what's changing, training |
+| **Vendors** | Scope, requirements, payment | Written specs, clear expectations |
+| **Your IT team** | Technical details, workload, support | Full technical context, honest timeline |
+
+### The Rule of Three Levels
+
+Every communication should work at three levels:
+
+1. **Executive summary** — 2-3 sentences. What's happening, why it matters, what you need from them.
+2. **Details** — the key facts, timeline, risks, and asks. Fits on one page.
+3. **Deep dive** — full technical details, available on request. Never lead with this.
+
+Always start at level 1. Only go deeper if they ask.
+
+## Communicating Up: Executives and Leadership
+
+### The Status Update Formula
+
+Executives have 90 seconds of attention for your update. Use this structure:
+
+**Bottom Line Up Front (BLUF):**
+> "The Salesforce migration is on track for the March 31 go-live. We're in sprint 3 of 5, API integration is working in staging, and UAT starts next week. One risk: a data mapping issue will add 3 days, but we have buffer in the schedule."
+
+**Format for written updates:**
+
+```
+PROJECT: Salesforce Migration
+STATUS: 🟢 On Track (was 🟢)
+PROGRESS: Sprint 3/5 complete (60%)
+
+HIGHLIGHTS:
+• API integration working in staging environment
+• 85% of data mapping validated
+
+RISKS:
+• Product category mapping issue — adding 3 days (mitigation: team working overtime, buffer in schedule covers it)
+
+NEXT WEEK:
+• Begin UAT with sales team pilot group
+• Complete remaining data mapping
+
+DECISIONS NEEDED:
+• Approve UAT participant list (attached)
+```
+
+### Delivering Bad News
+
+Bad news doesn't get better with age. When a project hits trouble:
+
+1. **Report early** — "We've identified an issue" is better than "The project is delayed"
+2. **Lead with the impact** — "The go-live will shift by 2 weeks" (not "the database migration script failed")
+3. **Explain why** — briefly, without jargon
+4. **Present options** — never bring a problem without at least one proposed solution
+5. **State what you need** — "I need your approval to bring in a contractor for 2 weeks"
+
+**Example:**
+
+> "I need to flag a timeline risk on the M365 migration. During our pilot migration, we discovered that the legacy email archive format isn't compatible with M365's import tool. This affects 3 years of archived emails for the legal department.
+>
+> We have two options:
+> 1. Use a third-party migration tool ($5,000) — maintains the original timeline
+> 2. Export and re-import manually — adds 3 weeks to the timeline
+>
+> I recommend option 1. The cost is small compared to the 3-week delay impact. I need your approval by Thursday to keep us on schedule."
+
+### What Executives Really Want to Hear
+
+- **"Are we on time and on budget?"** — yes/no, with brief explanation if no
+- **"What decisions do you need from me?"** — be specific, give them options
+- **"What's the business impact?"** — always translate technical problems into business terms
+- **"What are the risks?"** — and what you're doing about them
+
+### What to Avoid
+
+- **Technical jargon** — "The SAML assertion is timing out" → "Users can't log in via SSO"
+- **Long emails** — if it's longer than a phone screen, it won't be read
+- **Surprises** — never let your boss learn about a problem from someone else first
+- **Blame** — "The vendor missed the deadline" → "We're working with the vendor to recover the schedule"
+
+## Communicating Across: Vendors and Peers
+
+### Setting Vendor Expectations
+
+```
+Hi [Vendor Name],
+
+We're kicking off the Fishbowl-Salesforce integration project. Here's what we need from your team:
+
+SCOPE: [specific deliverables]
+TIMELINE: [key dates]
+OUR RESPONSIBILITIES: [what we'll provide — test environment access, data samples, etc.]
+YOUR RESPONSIBILITIES: [what we expect — API documentation, support contacts, etc.]
+COMMUNICATION: Weekly 30-min status call, email for urgent issues
+ESCALATION: If we don't hear back within 24 hours on a blocking issue, we'll escalate to [name]
+
+Please confirm you agree to these terms or suggest changes by [date].
+```
+
+### Negotiating with Other Departments
+
+When another department wants something from IT:
+
+1. **Listen first** — understand their actual need, not just their request
+2. **Translate** — "You need the report by Monday" might mean "You need the data, and it doesn't have to be a formal report"
+3. **Set realistic expectations** — "I can give you a quick version by Monday and the full version by Thursday"
+4. **Document agreements** — a quick follow-up email prevents "but I thought you said..."
+
+## Communicating Down: Your Team and End Users
+
+### Sharing Project Context with Your Team
+
+Your IT team needs more context than just "do this task." Share:
+
+- **Why** this project matters to the business
+- **How** their piece fits the bigger picture
+- **What** success looks like
+- **When** things need to be done and why that date matters
+
+### Change Communication to End Users
+
+When rolling out something new, send three communications:
+
+**2 weeks before:** "What's changing and why"
+> "Starting March 15, we're upgrading to the new VPN client. This will give you faster connections and fix the disconnect issues many of you have reported."
+
+**1 week before:** "What you need to do"
+> "Next Monday, a new VPN icon will appear on your desktop. Click it and follow the 3-step setup guide (attached). The old VPN will stop working on March 22."
+
+**Day of:** "It's here — here's help"
+> "The new VPN is live! Quick start guide attached. If you have issues, contact IT at ext. 2100 or submit a ticket. We have extra support staff available today and tomorrow."
+
+## Handling Difficult Conversations
+
+### "Why does IT always say no?"
+
+Reframe from "no" to "yes, but":
+- ~~"No, we can't do that."~~ → "We can do that — here's what it would take in terms of time and budget."
+- ~~"That's not a priority."~~ → "I agree that's valuable. Here's what we'd need to shift to fit it in. Which of these current projects should we deprioritize?"
+
+### "This should be simple — why is it taking so long?"
+
+Validate, explain simply, offer context:
+> "I understand it feels like it should be quick. The challenge is that changing the invoice format requires updates in three connected systems — Fishbowl, our PDF generator, and the email template. We want to make sure nothing breaks in the process. We're targeting next Friday."
+
+## Practical Exercise
+
+1. **Write a BLUF status update** for your current biggest project using the format above
+2. **Draft a bad news email** for a real or hypothetical project delay
+3. **Create a change communication plan** for the next IT rollout — write all three emails
+4. **Map your stakeholders** for an upcoming project — who cares, what they care about, and how to reach them

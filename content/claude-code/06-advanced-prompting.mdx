@@ -1,0 +1,204 @@
+---
+title: "Advanced Prompting for IT Tasks"
+description: "Master prompt engineering techniques specific to IT management scenarios for maximum productivity."
+estimatedMinutes: 30
+tags: ["advanced", "prompting"]
+---
+
+# Advanced Prompting for IT Tasks
+
+You've learned the basics of using Claude Code for specific tools like Excel, Salesforce, and Fishbowl. Now let's level up your prompting skills with techniques that make Claude dramatically more useful for complex IT management work.
+
+## The CONTEXT-TASK-FORMAT Framework
+
+The most effective prompts for IT work follow this pattern:
+
+### 1. Context — Set the Scene
+
+```bash
+claude "I'm the IT manager for a mid-size distribution company (200 employees). We use Salesforce for CRM, Fishbowl for inventory, Office 365 for email and productivity, and Azure AD for identity management."
+```
+
+### 2. Task — Be Specific About the Problem
+
+```bash
+claude "I need to create an automated process that detects when a Salesforce Opportunity is marked 'Closed Won' and triggers a Sales Order creation in Fishbowl with the correct line items."
+```
+
+### 3. Format — Tell Claude How You Want the Answer
+
+```bash
+claude "Provide your answer as:
+1. Architecture diagram (text-based)
+2. Step-by-step implementation plan
+3. Code snippets for the critical integration points
+4. Risk assessment with mitigation strategies"
+```
+
+### Putting It All Together
+
+```bash
+claude "CONTEXT: I'm an IT manager at a 200-person distribution company. We run Salesforce (Enterprise), Fishbowl, Office 365, and Azure AD.
+
+TASK: Design an integration that automatically creates a Fishbowl Sales Order when a Salesforce Opportunity closes. The SO should pull the correct product codes, quantities, and ship-to address from the Opportunity and its line items.
+
+FORMAT: Give me:
+1. A text architecture diagram showing the data flow
+2. Step-by-step implementation plan with estimated effort
+3. Key API calls needed for both Salesforce and Fishbowl
+4. Error handling strategy for when the systems are out of sync
+5. Testing approach"
+```
+
+## Chain-of-Thought for Troubleshooting
+
+When debugging complex IT issues, ask Claude to think through the problem step by step:
+
+```bash
+claude "Users are reporting intermittent Salesforce login failures, but only when connecting via VPN. Walk me through the diagnostic process step by step:
+
+1. What logs should I check first and what am I looking for?
+2. What are the most common causes for VPN-specific auth failures?
+3. How do I isolate whether the issue is DNS, SAML, network routing, or something else?
+4. For each potential cause, what's the specific fix?
+
+Think through this methodically — don't jump to solutions until we've properly diagnosed."
+```
+
+## Role-Based Prompting
+
+Ask Claude to respond from a specific professional perspective:
+
+```bash
+claude "As a senior cybersecurity consultant reviewing our IT infrastructure, analyze our current setup and identify the top 5 security risks:
+- Azure AD with MFA enabled for external access only
+- VPN required for remote work, split-tunnel enabled
+- Salesforce SSO via Azure AD
+- Fishbowl accessed directly over VPN (no SSO)
+- Local admin rights on developer laptops
+- Monthly Windows patching cycle
+- Daily database backups to local NAS, weekly offsite
+
+Prioritize by risk level and provide actionable remediation steps for each."
+```
+
+## Multi-Step Planning
+
+Break complex projects into manageable phases:
+
+```bash
+claude "I need to migrate our on-premise file server to SharePoint Online. We have:
+- 2TB of files across 50 department folders
+- Complex permissions (some folders restricted to specific teams)
+- Files going back 10 years (many are likely outdated)
+- Users who are resistant to change
+
+Create a phased migration plan that includes:
+Phase 1: Assessment and cleanup
+Phase 2: Pilot migration with one department
+Phase 3: Bulk migration
+Phase 4: Decommission old server
+
+For each phase, include: timeline, tasks, resources needed, risks, and success criteria."
+```
+
+## Comparative Analysis
+
+When evaluating options, ask Claude to structure the comparison:
+
+```bash
+claude "Compare these three approaches for our helpdesk ticketing system replacement:
+1. Upgrade our current Freshdesk plan
+2. Migrate to Jira Service Management
+3. Build a custom solution using Microsoft Power Platform
+
+Evaluate each on: cost (for 200 users), implementation effort, integration with our stack (Salesforce, Azure AD, Slack), reporting capabilities, and scalability. Present as a comparison table followed by a recommendation."
+```
+
+## Template Prompts for Recurring Tasks
+
+### Security Incident Response
+
+```bash
+claude "A user reported receiving a phishing email that they may have clicked on. The email appeared to be from our CEO asking them to review an attached invoice. Here's what we know:
+- User: [name], [department]
+- Time of click: approximately [time]
+- User has Salesforce and Fishbowl access
+- User's laptop is [managed/unmanaged]
+
+Walk me through the incident response procedure:
+1. Immediate containment steps
+2. Investigation (what to check, where)
+3. Remediation
+4. Communication (to user, to management, to all staff if needed)
+5. Prevention measures to add"
+```
+
+### Vendor Evaluation
+
+```bash
+claude "Evaluate this SaaS vendor for our company. Answer these due diligence questions:
+- Vendor: [name]
+- Product: [what it does]
+- Our use case: [what we'd use it for]
+
+Evaluate:
+1. Security (SOC 2, data encryption, access controls, incident response)
+2. Integration (APIs, SSO support, data export capabilities)
+3. Compliance (GDPR, industry-specific regulations)
+4. Business continuity (SLA, uptime history, disaster recovery)
+5. Exit strategy (data portability, contract terms)
+
+What questions should I ask the vendor that they'll try to dodge?"
+```
+
+### Budget Justification
+
+```bash
+claude "Help me write a budget justification for upgrading our network infrastructure. The facts:
+- Current switches are 8 years old and out of support
+- We've had 3 network outages in the past 6 months totaling 12 hours of downtime
+- Each hour of downtime costs approximately $15,000 in lost productivity
+- The upgrade would cost $85,000 for equipment and $15,000 for installation
+- New equipment includes 5-year warranty and support
+
+Write this as a business case memo for the CFO. Focus on ROI, risk reduction, and business impact — not technical specs."
+```
+
+## Iterative Refinement
+
+Don't accept the first answer — refine it:
+
+```bash
+# First prompt
+claude "Write a disaster recovery plan for our IT infrastructure."
+
+# Too generic — refine with specifics
+claude "Make this specific to our environment:
+- Primary systems: Salesforce (cloud), Fishbowl (on-prem server), Exchange Online, file server (on-prem)
+- RPO requirement: 4 hours for critical systems, 24 hours for non-critical
+- RTO requirement: 2 hours for critical, 8 hours for non-critical
+- Budget: moderate (we can afford cloud backup but not a full hot site)
+- Team: 3 IT staff total"
+
+# Still needs work — drill into a section
+claude "Expand the Fishbowl recovery section. Our Fishbowl server runs on Windows Server 2019 with a MySQL database. We currently back up nightly to a NAS. What's the fastest way to recover if the server hardware fails completely?"
+```
+
+## Practical Exercise
+
+Practice these advanced techniques with real scenarios:
+
+1. **CTF Framework** — Take a complex project you're planning and structure a prompt using Context-Task-Format
+2. **Troubleshooting chain** — Describe a recurring technical issue and ask Claude to walk through diagnosis step by step
+3. **Decision analysis** — Compare two tools or approaches you've been evaluating using the comparative analysis pattern
+4. **Budget case** — Write a budget justification for something you actually need to purchase
+
+## Key Principles
+
+- **Be specific** — "our Salesforce Enterprise org with 200 users" beats "our CRM system"
+- **Provide constraints** — budget, timeline, team size, and existing systems all matter
+- **Request structure** — ask for tables, numbered steps, or specific sections
+- **Iterate** — the first answer is a starting point, not the final product
+- **Save your best prompts** — build a personal library of templates you can reuse
+- **Include what you've already tried** — this prevents Claude from suggesting things you've already ruled out
