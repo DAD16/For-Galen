@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+
 const ESCAPE_SITES = [
   "https://en.wikipedia.org/wiki/Cat",
   "https://www.boredpanda.com/cute-cats/",
@@ -17,14 +19,51 @@ function getRandomSite() {
   return ESCAPE_SITES[Math.floor(Math.random() * ESCAPE_SITES.length)];
 }
 
+const CORNER_ZONE = 80; // pixels from top-right corner
+const SPEED_THRESHOLD = 2500; // pixels per second
+const SAMPLE_WINDOW = 150; // ms to measure velocity over
+
 export function PanicCorner() {
-  return (
-    <div
-      className="fixed right-0 top-0 z-[9999] h-3 w-12 cursor-default"
-      onMouseEnter={() => {
+  const positionsRef = useRef<{ x: number; y: number; t: number }[]>([]);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const now = performance.now();
+      const positions = positionsRef.current;
+
+      positions.push({ x: e.clientX, y: e.clientY, t: now });
+
+      // Keep only recent positions within the sample window
+      while (positions.length > 0 && now - positions[0].t > SAMPLE_WINDOW) {
+        positions.shift();
+      }
+
+      // Check if cursor is in the upper-right corner zone
+      const inCorner =
+        e.clientX > window.innerWidth - CORNER_ZONE && e.clientY < CORNER_ZONE;
+
+      if (!inCorner || positions.length < 2) return;
+
+      // Calculate speed from oldest sample to current position
+      const oldest = positions[0];
+      const dt = (now - oldest.t) / 1000; // seconds
+      if (dt < 0.02) return; // need at least 20ms of data
+
+      const dx = e.clientX - oldest.x;
+      const dy = e.clientY - oldest.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const speed = distance / dt;
+
+      // Must be moving fast AND heading toward upper-right (dx > 0, dy < 0)
+      if (speed > SPEED_THRESHOLD && dx > 0 && dy < 0) {
+        positionsRef.current = [];
         window.location.href = getRandomSite();
-      }}
-      aria-hidden="true"
-    />
-  );
+      }
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    return () => document.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  return null;
 }
