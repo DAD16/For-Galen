@@ -25,6 +25,7 @@ const pageTitles: Record<string, string> = {
   "/skills/tutor": "Skill Tutor",
   "/skills/coach": "Project Coach",
   "/instructors": "Instructors",
+  "/projects/new": "New Project",
 };
 
 export function SiteHeader() {
@@ -32,7 +33,7 @@ export function SiteHeader() {
 
   const segments = pathname.split("/").filter(Boolean);
 
-  // For instructor profile pages, format the name nicely
+  // For dynamic pages, format names nicely
   const getPageTitle = () => {
     if (pageTitles[pathname]) return pageTitles[pathname];
     if (segments[0] === "instructors" && segments[1]) {
@@ -40,6 +41,10 @@ export function SiteHeader() {
         .split("-")
         .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
         .join(" ");
+    }
+    // For project board pages (/projects/[id]), show "Project Board"
+    if (segments[0] === "projects" && segments[1] && segments[1] !== "new") {
+      return "Project Board";
     }
     return (
       segments[segments.length - 1]?.replace(/-/g, " ") || "Dashboard"
