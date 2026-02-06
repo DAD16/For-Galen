@@ -15,8 +15,21 @@ const ESCAPE_SITES = [
   "https://www.youtube.com/watch?v=J---aiyznGQ",
 ];
 
-function getRandomSite() {
-  return ESCAPE_SITES[Math.floor(Math.random() * ESCAPE_SITES.length)];
+const STORAGE_KEY = "panic-queue";
+
+function getNextSite(): string {
+  try {
+    let queue: string[] = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    if (queue.length === 0) {
+      // Shuffle a fresh copy of all sites
+      queue = [...ESCAPE_SITES].sort(() => Math.random() - 0.5);
+    }
+    const next = queue.shift()!;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(queue));
+    return next;
+  } catch {
+    return ESCAPE_SITES[Math.floor(Math.random() * ESCAPE_SITES.length)];
+  }
 }
 
 const CORNER_ZONE = 120; // pixels from top-right corner
@@ -57,7 +70,7 @@ export function PanicCorner() {
       // Just needs to be moving fast into the corner — any direction
       if (speed > SPEED_THRESHOLD) {
         positionsRef.current = [];
-        window.location.href = getRandomSite();
+        window.location.href = getNextSite();
       }
     };
 
