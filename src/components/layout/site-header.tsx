@@ -24,16 +24,28 @@ const pageTitles: Record<string, string> = {
   "/skills": "Skills",
   "/skills/tutor": "Skill Tutor",
   "/skills/coach": "Project Coach",
+  "/instructors": "Instructors",
 };
 
 export function SiteHeader() {
   const pathname = usePathname();
 
   const segments = pathname.split("/").filter(Boolean);
-  const pageTitle =
-    pageTitles[pathname] ||
-    segments[segments.length - 1]?.replace(/-/g, " ") ||
-    "Dashboard";
+
+  // For instructor profile pages, format the name nicely
+  const getPageTitle = () => {
+    if (pageTitles[pathname]) return pageTitles[pathname];
+    if (segments[0] === "instructors" && segments[1]) {
+      return segments[1]
+        .split("-")
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(" ");
+    }
+    return (
+      segments[segments.length - 1]?.replace(/-/g, " ") || "Dashboard"
+    );
+  };
+  const pageTitle = getPageTitle();
 
   return (
     <header className="flex h-14 shrink-0 items-center gap-2 border-b px-6">

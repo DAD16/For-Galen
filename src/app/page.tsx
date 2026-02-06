@@ -197,11 +197,12 @@ export default function DashboardPage() {
         <h2 className="mb-4 text-2xl font-semibold tracking-tight">
           Your Instructors
         </h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {personas.map((persona) => (
-            <div
+            <Link
               key={persona.id}
-              className="flex items-center gap-3 rounded-lg border p-4"
+              href={`/instructors/${persona.id}`}
+              className="flex items-center gap-3 rounded-lg border p-4 transition-all hover:border-primary/50 hover:shadow-md hover:-translate-y-0.5"
             >
               <div
                 className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${persona.color} text-xs font-bold text-white`}
@@ -214,7 +215,7 @@ export default function DashboardPage() {
                   {persona.title}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
