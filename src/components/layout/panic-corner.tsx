@@ -19,9 +19,9 @@ function getRandomSite() {
   return ESCAPE_SITES[Math.floor(Math.random() * ESCAPE_SITES.length)];
 }
 
-const CORNER_ZONE = 80; // pixels from top-right corner
-const SPEED_THRESHOLD = 2500; // pixels per second
-const SAMPLE_WINDOW = 150; // ms to measure velocity over
+const CORNER_ZONE = 120; // pixels from top-right corner
+const SPEED_THRESHOLD = 1800; // pixels per second
+const SAMPLE_WINDOW = 200; // ms to measure velocity over
 
 export function PanicCorner() {
   const positionsRef = useRef<{ x: number; y: number; t: number }[]>([]);
@@ -54,8 +54,8 @@ export function PanicCorner() {
       const distance = Math.sqrt(dx * dx + dy * dy);
       const speed = distance / dt;
 
-      // Must be moving fast AND heading toward upper-right (dx > 0, dy < 0)
-      if (speed > SPEED_THRESHOLD && dx > 0 && dy < 0) {
+      // Just needs to be moving fast into the corner — any direction
+      if (speed > SPEED_THRESHOLD) {
         positionsRef.current = [];
         window.location.href = getRandomSite();
       }
