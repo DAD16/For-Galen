@@ -119,7 +119,7 @@ export function TaskDetailSheet({
   };
 
   return (
-    <Sheet open={!!task} onOpenChange={(open) => !open && onClose()}>
+    <Sheet open={!!task} onOpenChange={(open) => !open && onClose()} modal={false}>
       <SheetContent className="sm:max-w-md overflow-y-auto">
         <SheetHeader>
           <SheetTitle>Task Details</SheetTitle>

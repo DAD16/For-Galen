@@ -6,6 +6,7 @@ import {
   DragOverlay,
   closestCorners,
   PointerSensor,
+  TouchSensor,
   KeyboardSensor,
   useSensor,
   useSensors,
@@ -37,6 +38,9 @@ export function KanbanBoard({ initialProject }: KanbanBoardProps) {
   const sensors = useSensors(
     useSensor(PointerSensor, {
       activationConstraint: { distance: 8 },
+    }),
+    useSensor(TouchSensor, {
+      activationConstraint: { delay: 200, tolerance: 5 },
     }),
     useSensor(KeyboardSensor)
   );
@@ -210,7 +214,7 @@ export function KanbanBoard({ initialProject }: KanbanBoardProps) {
                   onEditTask={setEditingTask}
                 />
               ))}
-            <div className="flex w-[300px] shrink-0 items-start">
+            <div className="flex w-[260px] shrink-0 items-start sm:w-[300px]">
               <Button
                 variant="outline"
                 className="w-full border-dashed"

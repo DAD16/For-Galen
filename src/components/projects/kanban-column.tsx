@@ -28,7 +28,7 @@ export function KanbanColumn({
   const taskIds = tasks.map((t) => t.id);
 
   return (
-    <div className="flex h-full w-[300px] shrink-0 flex-col rounded-lg bg-muted/50">
+    <div className="flex h-full w-[260px] shrink-0 flex-col rounded-lg bg-muted/50 sm:w-[300px]">
       <div className="flex items-center justify-between px-3 py-2.5">
         <div className="flex items-center gap-2">
           <h3 className="text-sm font-semibold">{column.title}</h3>
