@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock, PlusCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -109,6 +109,24 @@ export default async function LessonPage({
             </Link>
           </Button>
         )}
+      </div>
+
+      {/* Dive Deeper CTA */}
+      <div className="rounded-lg border border-dashed p-5">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="font-medium">Want to dive deeper into this topic?</p>
+            <p className="text-sm text-muted-foreground">
+              Create your own course to explore {currentModule?.title || "this subject"} further with custom notes and lessons.
+            </p>
+          </div>
+          <Button variant="outline" size="sm" asChild className="shrink-0">
+            <Link href={`/my-courses/new?topic=${encodeURIComponent(currentModule?.title || slug)}`}>
+              <PlusCircle className="mr-2 h-4 w-4" />
+              Create a Course
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <LessonChat

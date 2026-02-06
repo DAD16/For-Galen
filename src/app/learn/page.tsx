@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Terminal, Kanban, Zap } from "lucide-react";
+import { Terminal, Kanban, Zap, PlusCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -136,6 +137,20 @@ export default function LearnPage() {
           </div>
         </div>
       )}
+
+      {/* Create Your Own Course CTA */}
+      <div className="rounded-lg border border-dashed p-6 text-center">
+        <PlusCircle className="mx-auto mb-3 h-8 w-8 text-muted-foreground" />
+        <h3 className="font-semibold">Want to learn something specific?</h3>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Create your own course on any topic. Add notes, lessons, and build a personalized learning path.
+        </p>
+        <Button variant="outline" size="sm" asChild className="mt-4">
+          <Link href="/my-courses/new">
+            Create a Course
+          </Link>
+        </Button>
+      </div>
     </div>
   );
 }

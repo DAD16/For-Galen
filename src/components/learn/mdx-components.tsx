@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { CodeBlock } from "./code-block";
 
 function Callout({
   type = "info",
@@ -90,4 +91,5 @@ export const mdxCustomComponents = {
   Callout,
   StepByStep,
   Quiz,
+  pre: CodeBlock,
 };
